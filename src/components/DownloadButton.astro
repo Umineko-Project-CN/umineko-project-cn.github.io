@@ -1,0 +1,29 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  class?: string;
+  link: string;
+}
+
+const { class: className, link } = Astro.props;
+
+const url = new URL(link);
+
+const color =
+  {
+    "pan.baidu.com": "#06a7ff",
+    "pan.quark.cn": "#1256ff",
+    "cloud.189.cn": "#fb9312",
+    "mega.nz": "#dd1405",
+  }[url.hostname] || "black";
+---
+
+<a
+  class:list={["btn min-h-fit", className]}
+  style={`--btn-color:${color};--btn-fg: white`}
+  href={link}
+>
+  <Icon class="tabler--download" />
+  <slot />
+</a>

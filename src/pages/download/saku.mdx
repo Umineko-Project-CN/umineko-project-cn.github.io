@@ -5,6 +5,7 @@ description: 《海猫鸣泣之时咲》NS版汉化补丁下载页面 - 获取Ni
 import Icon from "@components/Icon.astro"
 import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
+import DownloadButton from "@components/DownloadButton.astro"
 
 **![](@assets/pages/download/saku/download_banner.webp)**
 
@@ -105,7 +106,7 @@ import AccordionItem from "@components/AccordionItem.astro"
 <AccordionItem title="其他贴士">
 ### 如何操作
 
-**![](@assets/pages/download/saku/download_read1.webp)**
+![](@assets/pages/download/saku/download_read1.webp)
 在标题界面或系统菜单选择“Manual”，可以打开说明书，在“操作方式”页查看游戏键位。  
 - 若使用模拟器游玩，可以在模拟器的设置界面查看键位映射。
 
@@ -113,7 +114,7 @@ import AccordionItem from "@components/AccordionItem.astro"
 
 ### 跳过正篇
 
-**![](@assets/pages/download/saku/download_read2.webp)**
+![](@assets/pages/download/saku/download_read2.webp)
 如果已经游玩过《海猫》的正篇剧本（EP1-8），可以在剧本选择界面按“+”键，解锁所有正篇剧本，直接开始阅读番外剧本。
 - 如果是初次游玩，不推荐直接解锁。
 </AccordionItem>
@@ -138,26 +139,20 @@ import AccordionItem from "@components/AccordionItem.astro"
 ## 下载链接
 请在下载前阅读完所有上述内容
 
-<div class="not-prose mb-4">
-    <a class="btn btn-info btn-md" href="https://pan.baidu.com/s/1dqI2tgrdo_XY4u7o993q9A">
-        <Icon class="tabler--download" /> 百度网盘下载（提取码：1129）
-    </a>
-</div>
+<div class="not-prose w-80 max-w-fit">
+	<DownloadButton class="btn-md btn-block mb-4" link="https://pan.baidu.com/s/1dqI2tgrdo_XY4u7o993q9A">
+		百度网盘下载（提取码：1129）
+	</DownloadButton>
 
-<div class="not-prose mb-4">
-    <a class="btn btn-info btn-md" href="https://pan.quark.cn/s/6c51a840af1b">
-        <Icon class="tabler--download" /> 夸克网盘下载（提取码：aEeB）
-    </a>
-</div>
+    <DownloadButton class="btn-md btn-block mb-4" link="https://pan.quark.cn/s/6c51a840af1b">
+		夸克网盘下载（提取码：aEeB）
+	</DownloadButton>
 
-<div class="not-prose mb-4">
-    <a class="btn btn-error btn-md" href="https://cloud.189.cn/t/VBryU3nUJvyu">
-        <Icon class="tabler--download" /> 天翼云盘下载（访问码：8fvf）
-    </a>
-</div>
+    <DownloadButton class="btn-md btn-block mb-4" link="https://cloud.189.cn/t/VBryU3nUJvyu">
+		天翼云盘下载（访问码：8fvf）
+	</DownloadButton>
 
-<div class="not-prose">
-    <a class="btn btn-error btn-md" href="https://mega.nz/folder/HThmEaDB#5X5T2RUM0pG-bEjPDXZSPw">
-        <Icon class="tabler--download" /> MEGA 网盘下载（需魔法访问）
-    </a>
+    <DownloadButton class="btn-md btn-block" link="https://mega.nz/folder/HThmEaDB#5X5T2RUM0pG-bEjPDXZSPw">
+		MEGA 网盘下载（需魔法访问）
+	</DownloadButton>
 </div>

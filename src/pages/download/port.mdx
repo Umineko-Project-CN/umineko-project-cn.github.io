@@ -5,6 +5,7 @@ description: 《海猫鸣泣之时》PS3移植重制版下载页面 - 提供完�
 import Icon from "@components/Icon.astro"
 import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
+import DownloadButton from "@components/DownloadButton.astro"
 
 **![](@assets/pages/download/port/download_banner.webp)**
 
@@ -14,7 +15,7 @@ import AccordionItem from "@components/AccordionItem.astro"
 
 <AccordionItem title="介绍">
 ### 游戏介绍
-**![](@assets/pages/download/port/download_read1.webp)**
+![](@assets/pages/download/port/download_read1.webp)
 
 **《海猫鸣泣之时～轮舞曲与夜想曲 移植版～》** 是由民间制作组 Umineko Project 基于 Alchemist 制作的 PS3 版游戏，进行移植重制版本。拥有与 PS3 版几乎完全一致的视听效果，并对 PS3 版系统进行了多项优化。
 
@@ -90,22 +91,22 @@ import AccordionItem from "@components/AccordionItem.astro"
 - 也建议其他平台玩家定期在 Windows 下使用启动器检查更新。
 
 **启动器界面如下：**  
-**![](@assets/pages/download/port/download_read4.webp)**
+![](@assets/pages/download/port/download_read4.webp)
 
 **启动与更新方法：**
 
 打开后，启动器会自动检查更新。若左下角的信号灯显示为橙色或红色，请等待“获取更新”按钮出现后，进行更新。（若未来有较大版本更新，可能会强制跳转至网盘页面，并需要手动下载。）  
-**![](@assets/pages/download/port/download_read5.webp)**
+![](@assets/pages/download/port/download_read5.webp)
 
 若检测为最新版本会显示为绿色。可直接“开始游戏”。  
-**![](@assets/pages/download/port/download_read6.webp)**
+![](@assets/pages/download/port/download_read6.webp)
 
 **\* 如 Windows 7 用户遇到了无法更新的问题，可尝试在微软官网下载安装
 [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer)
 解决**
 
 **点击左上角的按钮，可展开“设置”与“关于”页面：**  
-**![](@assets/pages/download/port/download_read7.webp)**
+![](@assets/pages/download/port/download_read7.webp)
 
 **填写反馈：**
 
@@ -154,16 +155,14 @@ import AccordionItem from "@components/AccordionItem.astro"
 ### 游戏下载
 > 新玩家只需点击这里即可
 
-<div class="not-prose mb-4">
-    <a class="btn btn-info btn-md" href="https://pan.baidu.com/s/1Gu_-wr70gkidnYBMXKt_Bg">
-        <Icon class="tabler--download" /> 百度网盘下载（提取码：1129）
-    </a>
-</div>
+<div class="not-prose w-80 max-w-fit">
+    <DownloadButton class="btn-md btn-block mb-4" link="https://pan.baidu.com/s/1Gu_-wr70gkidnYBMXKt_Bg">
+        百度网盘下载（提取码：1129）
+    </DownloadButton>
 
-<div class="not-prose">
-    <a class="btn btn-error btn-md" href="https://mega.nz/folder/DG4g3bSQ#i0SE2HBANoQsak361-PX0A">
-        <Icon class="tabler--download" /> MEGA 网盘下载（需魔法访问）
-    </a>
+    <DownloadButton class="btn-md btn-block" link="https://mega.nz/folder/DG4g3bSQ#i0SE2HBANoQsak361-PX0A">
+        MEGA 网盘下载（需魔法访问）
+    </DownloadButton>
 </div>
 
 ---
@@ -171,16 +170,14 @@ import AccordionItem from "@components/AccordionItem.astro"
 ### 语言包下载
 > 上方完整游戏中已包含，此处仅供玩家更新使用
 
-<div class="not-prose mb-4">
-    <a class="btn btn-info btn-sm btn-soft" href="https://pan.baidu.com/s/1UNQQDbtRJC3eaUlDOoVS6A">
-        <Icon class="tabler--download" /> 繁体中文包 百度网盘下载（提取码：0715）
-    </a>
-</div>
+<div class="not-prose w-90 max-w-fit">
+    <DownloadButton class="btn-sm btn-soft btn-block mb-4" link="https://pan.baidu.com/s/1UNQQDbtRJC3eaUlDOoVS6A">
+        繁体中文包 百度网盘下载（提取码：0715）
+    </DownloadButton>
 
-<div class="not-prose">
-    <a class="btn btn-error btn-sm btn-soft" href="https://mega.nz/folder/rGoDWRyD#R1BxfiBLUaM7ljsGFvA-TA">
-        <Icon class="tabler--download" /> 繁体中文包 MEGA 网盘下载（需魔法访问）
-    </a>
+    <DownloadButton class="btn-sm btn-soft btn-block" link="https://mega.nz/folder/rGoDWRyD#R1BxfiBLUaM7ljsGFvA-TA">
+        繁体中文包 MEGA 网盘下载（需魔法访问）
+    </DownloadButton>
 </div>
 
 ---
