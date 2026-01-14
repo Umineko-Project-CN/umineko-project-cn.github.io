@@ -6,7 +6,12 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<div class:list={["accordion divide-neutral/20 divide-y", className]}>
+<div
+  class:list={[
+    "accordion accordion-shadow *:accordion-item-active:shadow-md",
+    className,
+  ]}
+>
   <slot />
 </div>
 

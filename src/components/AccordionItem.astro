@@ -11,7 +11,7 @@ const { id: providedId, title, active } = Astro.props;
 
 // Generate a unique ID if not provided
 const generateId = () => {
-  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+  if (typeof crypto !== "undefined" && crypto.randomUUID) {
     return `accordion-${crypto.randomUUID().slice(0, 8)}`;
   }
   // Fallback for environments without crypto.randomUUID
@@ -21,7 +21,7 @@ const generateId = () => {
 const id = providedId || generateId();
 ---
 
-<div class:list={["accordion-item", { active }]} id={id}>
+<div class:list={["accordion-item bg-base-200", { active }]} id={id}>
   <button
     class="accordion-toggle inline-flex items-center gap-x-4 text-start"
     aria-controls={`${id}-collapse`}
