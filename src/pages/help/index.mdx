@@ -11,19 +11,19 @@ import AccordionItem from "@components/AccordionItem.astro"
 ### 常见错误解决方法
 <Accordion>
 
-<AccordionItem id="faq-1-arrow" title="下载后解压失败">
+<AccordionItem title="下载后解压失败">
 解压失败大多时候都是压缩软件过旧，或下载时出错造成的。  
 推荐所有玩家在 PC 上下载、解压游戏文件，并使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、 [WinRAR](https://www.rarlab.com/download.htm)
 等常用压缩软件进行解压。并检测压缩分包的 SHA1 校验码是否与网盘“1. 完整游戏”文件夹内“SHA1.txt”中记录的一致，不一致则需要重新下载该分包。（MD5 校验码可使用上述推荐软件 7-Zip 或 PeaZip 来检测）
 </AccordionItem>
 
-<AccordionItem id="faq-2-arrow" title="使用启动器更新失败">
+<AccordionItem title="使用启动器更新失败">
 Windows 7 用户更新失败（显示：`System.IO.FileNotFoundException`）是因为缺少系统组件，可尝试在微软官网下载安装
 [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer)
 解决。如果依然有更新问题，也可在“官网 &gt; 下载”页面的最下方手动分别下载更新档（包含脚本和资源包）。
 </AccordionItem>
 
-<AccordionItem id="faq-3-arrow" title="游戏没有声音">
+<AccordionItem title="游戏没有声音">
 如果窗口栏显示 [Sound: Off] 说明你误按下了静音键。再次按切换静音的快捷键 <Kbd>ALT</Kbd>+<Kbd>M</Kbd> 即可再次开启声音。更多快捷键也可在下方“常用诀窍”中查看。  
 如果游戏声音开启，却仍有音频问题，请尝试修改 ons.cfg：  
 添加音频格式条目：`audioformat=VALUE`，其中 `VALUE` 的值请在 `s8, u8, s16, u16, s32, f32` 这几项中选择。  
@@ -32,11 +32,11 @@ Windows 7 用户更新失败（显示：`System.IO.FileNotFoundException`）是�
 而如果发现游戏中部分人物缺少语音，可能是误在环境设置中关闭了部分人物的声音，请前往游戏内的环境界面中的第三页，确认是否所有人物的语音都设置为开启。若依旧存在问题，请检查游戏文件是否解压正确。
 </AccordionItem>
 
-<AccordionItem id="faq-4-arrow" title="手柄没有反应">
+<AccordionItem title="手柄没有反应">
 游戏只默认支持 Dualshock 3/4、Steam Controller、FuSa gamepad 等手柄。如使用的是 Xbox 手柄，可查阅 [常用诀窍](#自定义手柄键位) 中的解决方案。
 </AccordionItem>
 
-<AccordionItem id="faq-5-arrow" title="存档出现问题 / 无法存档读档">
+<AccordionItem title="存档出现问题 / 无法存档读档">
 可以尝试在游戏的环境设置中选择“初始化游戏”，或前往下方“常用诀窍”所列出的存档路径，手动删除存档文件夹“UminekoPS3ficationCn”解决（删除后存档会消失，如有需要可以先备份）。
 </AccordionItem>
 
