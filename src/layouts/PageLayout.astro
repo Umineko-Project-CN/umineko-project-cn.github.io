@@ -3,7 +3,7 @@ import type { MarkdownHeading, MarkdownLayoutProps } from "astro";
 import MainLayout from "./MainLayout.astro";
 import Icon from "@components/Icon.astro";
 
-import bgWhiteImg from "@assets/pages/port/white.webp";
+import skyImage from "@assets/common/sky.webp";
 
 type Props = MarkdownLayoutProps<{
   title: string;
@@ -50,14 +50,14 @@ const tocItems = buildTocTree(headings.filter((h) => h.depth > 1));
 
 <MainLayout title={title} description={description} image={image}>
   <div
-    id="title"
-    class="bg-(image:--bg-heading) py-16"
-    style={`--bg-heading: url('${bgWhiteImg.src}')`}
+    class:list={[
+      "absolute inset-0 -z-1",
+      "bg-black/50 bg-(image:--bg-image) bg-cover bg-fixed bg-no-repeat bg-blend-multiply",
+    ]}
+    style={`--bg-image: url('${skyImage.src}')`}
   >
-    <h1 class="text-base-300 text-center text-5xl">{title}</h1>
   </div>
-
-  <div class="container flex flex-col gap-8 py-16 md:flex-row">
+  <div id="main" class="container flex flex-col gap-8 py-16 md:flex-row">
     {
       toc === "on" && headings.length > 0 && (
         <aside class="flex-shrink-0 md:w-64 lg:w-72">
@@ -69,7 +69,7 @@ const tocItems = buildTocTree(headings.filter((h) => h.depth > 1));
           >
             <ul class="menu menu-sm">
               <li class="font-bold">
-                <a href="#title">
+                <a href="#main">
                   <Icon class="tabler--book size-4" />
                   {title}
                 </a>

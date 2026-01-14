@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
 
+import skyImg from "@assets/common/sky.webp";
 import introductionImg from "@assets/pages/port/introduction.webp";
-import bgWhite from "@assets/pages/port/white.webp";
 import cg2Img from "@assets/pages/port/cg-2.webp";
 import cg1Img from "@assets/pages/port/cg-1.webp";
 ---
 
 <section
   class="relative bg-(image:--intro-bg) bg-cover bg-fixed bg-no-repeat md:bg-center"
-  style={`--intro-bg: url('${bgWhite.src}')`}
+  style={`--intro-bg: url('${skyImg.src}')`}
 >
   <div
     class="bg-(image:--intro-cg2) bg-cover bg-center bg-no-repeat md:hidden"
