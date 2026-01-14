@@ -1,0 +1,31 @@
+---
+import Icon from "@components/Icon.astro";
+---
+
+<div
+  id="imageModal"
+  class:list={[
+    "modal hidden place-items-center",
+    "overlay overlay-open:opacity-100 overlay-open:duration-300",
+  ]}
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog w-fit max-w-fit md:max-w-[90dvw]">
+    <div class="modal-content bg-transparent text-white shadow-none">
+      <div class="modal-header mb-2 justify-end p-0">
+        <button
+          type="button"
+          class="btn btn-text btn-circle"
+          aria-label="Close"
+          data-overlay="#imageModal"
+        >
+          <Icon class="tabler--x" />
+        </button>
+      </div>
+      <div class="modal-body p-0">
+        <img class="max-h-[90dvh]" src="" alt="popup image" />
+      </div>
+    </div>
+  </div>
+</div>

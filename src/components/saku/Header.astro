@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+
+import logoImg from "@assets/logo/logo.webp";
+import titleImg from "@assets/pages/saku/page-title.webp";
+---
+
+<header class:list={["square:h-[15dvh] fixed z-2 h-[12dvh] w-full"]}>
+  <div id="headerHero" class="h-full p-[2dvh]">
+    <a href="/" class="btn btn-text h-full p-[1.5dvh]">
+      <Image
+        alt="日不落汉化组"
+        loading="eager"
+        src={logoImg}
+        class="h-full w-auto"
+      />
+    </a>
+  </div>
+  <div
+    id="headerMain"
+    class:list={[
+      "relative hidden h-full justify-center",
+      "bg-linear-to-t from-transparent to-[rgba(0,0,0,0.8)]",
+      "square:ml-0 square:overflow-y-clip square:justify-start",
+    ]}
+  >
+    <Image
+      src={titleImg}
+      alt=""
+      class:list={[
+        "absolute -top-[4.5dvh] left-1/2 h-[130%] w-auto -translate-x-1/2 rotate-90",
+        "square:relative square:top-1/2 square:-left-[5vh]",
+        "square:mr-[1dvh] square:h-[150%] square:w-auto square:rotate-0",
+        "square:translate-x-0 square:-translate-y-1/2",
+      ]}
+    />
+    <div
+      class="square:gap-[4dvh] z-1 flex items-center gap-[2dvh] px-[2dvh] font-serif"
+    >
+      <span
+        id="title"
+        class="square:text-[3rem] text-[2.3rem] font-bold tracking-[0.15em]"
+      ></span>
+      <span
+        id="subtitle"
+        class="square:text-[1.8rem] text-[1.1rem] leading-[1em] tracking-[0.05em]"
+      ></span>
+    </div>
+  </div>
+</header>

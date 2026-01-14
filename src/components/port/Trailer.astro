@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+
+import rokkenjimaImg from "@assets/pages/port/rokkenjima.webp";
+import frameImg from "@assets/pages/port/frame.webp";
+import trailerImg from "@assets/pages/port/trailer.webp";
+import bgBlackImg from "@assets/pages/port/black.webp";
+import flower1 from "@assets/pages/port/flower-1.webp";
+import flower2 from "@assets/pages/port/flower-2.webp";
+import flower3 from "@assets/pages/port/flower-3.webp";
+import flower4 from "@assets/pages/port/flower-4.webp";
+
+const layers = [
+  { img: flower4, speed: 0.2 },
+  { img: flower3, speed: 0.3 },
+  { img: flower2, speed: 0.5 },
+  { img: flower1, speed: 0.65 },
+];
+---
+
+<section
+  id="trailer-section"
+  class="relative bg-(image:--trailer-bg) bg-cover bg-fixed bg-center bg-no-repeat"
+  style={`--trailer-bg: url('${bgBlackImg.src}')`}
+>
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    {
+      layers.map(({ img, speed }) => (
+        <div
+          class:list={[
+            "petals absolute inset-x-0 -top-1/2 h-[200%]",
+            "bg-(image:--petals) bg-contain bg-center bg-repeat",
+          ]}
+          style={`--petals: url('${img.src}')`}
+          data-speed={speed}
+        />
+      ))
+    }
+  </div>
+
+  <Image
+    class="absolute top-0 w-full -translate-y-[55%]"
+    src={rokkenjimaImg}
+    alt="Rokkenjima"
+  />
+  <div class="px-10 pt-[12dvw] pb-[10dvw]">
+    <div class="relative mx-auto md:w-4/5 lg:w-1/2">
+      <a href="https://www.bilibili.com/video/BV1n44y127Va">
+        <Image class="w-full" src={frameImg} alt="Bilibili 宣传视频预览图" />
+      </a>
+      <Image
+        class="absolute right-1/2 bottom-0 w-1/2 translate-x-1/2 translate-y-1/2"
+        src={trailerImg}
+        alt="Trailer"
+      />
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  html {
+    /* Ensure the parallax effect works correctly */
+    position: relative;
+  }
+</style>

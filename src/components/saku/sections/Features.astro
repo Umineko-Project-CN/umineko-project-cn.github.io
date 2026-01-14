@@ -1,0 +1,89 @@
+---
+import Section from "../Section.astro";
+import Heading from "../Heading.astro";
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import preview1 from "@assets/pages/saku/features/preview-1.webp";
+import preview2 from "@assets/pages/saku/features/preview-2.webp";
+import pop1 from "@assets/pages/saku/features/pop-1.webp";
+import pop2 from "@assets/pages/saku/features/pop-2.webp";
+import pop3 from "@assets/pages/saku/features/pop-3.webp";
+import pop4 from "@assets/pages/saku/features/pop-4.webp";
+
+const note = clsx("text-gold text-[.75em] font-bold tracking-[0.04em]");
+---
+
+<Section>
+  <div
+    class:list={[
+      "flex flex-col items-center px-4 pt-[6dvh]",
+      "square:flex-row square:justify-center square:items-stretch",
+      "square:pt-[7dvh] square:gap-[4dvh]",
+      "square:text-[.9rem] text-[.7rem]",
+    ]}
+  >
+    <div class:list={["square:max-w-[37%] flex flex-col justify-between"]}>
+      <div>
+        <Heading text="译文升级" />
+        <p class="mb-4">
+          译文在底本的基础上经过了我们进一步的人工校对润色，<br
+            class="square:hidden"
+          />文本更加准确与通顺。<br />
+          <span class={note}
+            >感谢前原K1(暨MMR六轩岛调查队)、Fancia.葵、yukino的授权，以及所有译者。</span
+          >
+        </p>
+      </div>
+      <div>
+        <Heading text="错误修正" />
+        <div class="relative">
+          <Image src={preview1} alt="错误修正 预览" class="w-full" />
+          <div
+            class="absolute top-0 right-1/2 bottom-0 left-0 cursor-zoom-in"
+            data-overlay="#imageModal"
+            data-popup-img={pop1.src}
+          >
+          </div>
+          <div
+            class="absolute top-0 right-0 bottom-0 left-1/2 cursor-zoom-in"
+            data-overlay="#imageModal"
+            data-popup-img={pop2.src}
+          >
+          </div>
+        </div>
+        <p class="square:mb-0 mb-4">
+          我们修正了多处主机版错置的图片·语音·特效，力求呈现更加完美。<br />
+          <span class={note}
+            >双版本汉化均包含所有错误修正。<br
+              class="square:hidden"
+            />修正有参考 Umineko Project 的 PS3 版移植版，在此表示感谢。</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class:list={["square:max-w-[37%] flex flex-col justify-between"]}>
+      <div>
+        <Heading text="双版本汉化" />
+        <p class="square:mb-4">
+          主机版《海猫咲》因分级与版权等原因，对部分文本·语音·BGM进行了改动，为尽可能还原这部分内容，汉化补丁分为双版本：
+        </p>
+      </div>
+      <div class="relative">
+        <Image src={preview2} alt="双版本汉化 预览" class="w-full" />
+        <div
+          class="absolute top-[19%] right-1/2 bottom-[58%] left-0 cursor-zoom-in"
+          data-overlay="#imageModal"
+          data-popup-img={pop3.src}
+        >
+        </div>
+        <div
+          class="absolute top-[19%] right-0 bottom-[58%] left-1/2 cursor-zoom-in"
+          data-overlay="#imageModal"
+          data-popup-img={pop4.src}
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>

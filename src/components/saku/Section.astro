@@ -1,0 +1,32 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  noDefaultPadding?: boolean;
+}
+
+const { id, class: additionalClass, noDefaultPadding = false } = Astro.props;
+---
+
+<section id={id} class="swiper-slide">
+  <div
+    class:list={[
+      "relative mx-auto h-full w-full max-w-[48dvh]",
+      "square:max-w-full wide:max-w-[177.8dvh]",
+      noDefaultPadding ? "" : "square:py-[16dvh] pt-[12dvh]",
+      additionalClass,
+    ]}
+  >
+    <slot />
+  </div>
+</section>
+
+<style>
+  .swiper-slide {
+    transition-property: opacity;
+    pointer-events: none;
+  }
+  .swiper-slide-active {
+    pointer-events: auto;
+  }
+</style>

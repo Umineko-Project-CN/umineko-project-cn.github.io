@@ -1,0 +1,26 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Hero from "@components/port/Hero.astro";
+import Introduction from "@components/port/Introduction.astro";
+import Trailer from "@components/port/Trailer.astro";
+import Features from "@components/port/Features.astro";
+import Present from "@components/port/Present.astro";
+import Download from "@components/port/Download.astro";
+---
+
+<MainLayout
+  navbarStyle="transparent-on-top"
+  title="海猫鸣泣之时全平台中文重制版"
+  description="《海猫鸣泣之时》PS3移植重制版中文汉化 - 支持Windows、macOS、Linux、iOS、Android全平台，包含完整语音和高质量重制内容。由Umineko Project与日不落汉化组联合制作。"
+>
+  <Hero />
+  <Introduction />
+  <Trailer />
+  <Features />
+  <Present />
+  <Download />
+</MainLayout>
+
+<script>
+  import "@scripts/port";
+</script>

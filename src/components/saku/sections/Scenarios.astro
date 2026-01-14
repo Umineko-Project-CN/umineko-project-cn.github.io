@@ -1,0 +1,60 @@
+---
+import Section from "../Section.astro";
+import Heading from "../Heading.astro";
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import scenario1Img from "@assets/pages/saku/scenarios/1.webp";
+import scenario2Img from "@assets/pages/saku/scenarios/2.webp";
+import scenario3Img from "@assets/pages/saku/scenarios/3.webp";
+
+const scenarioImage = clsx(
+  "absolute inline w-[49%]",
+  "square:static square:-mt-[1dvh] square:h-[60dvh] square:w-auto",
+);
+const plusSymbol = clsx(
+  "absolute left-1/2 z-1 -translate-x-1/2 text-[7rem] font-semibold text-white",
+  "text-shadow-neutral text-shadow-[0_0_0.075em]",
+  "square:relative square:text-[12rem] square:-mx-[5.5dvh]",
+  "square:top-[8dvh] square:left-0 square:translate-x-0",
+);
+---
+
+<Section class="square:items-center flex flex-col">
+  <div class="relative whitespace-nowrap">
+    <Image
+      alt="剧本预览 1"
+      src={scenario1Img}
+      class:list={[scenarioImage, "top-0"]}
+    />
+    <span class:list={[plusSymbol, "top-[6dvh]"]}>+</span>
+    <Image
+      alt="剧本预览 2"
+      src={scenario2Img}
+      class:list={[scenarioImage, "top-[19dvh] right-0"]}
+    />
+    <span class:list={[plusSymbol, "top-[45dvh]"]}>+</span>
+    <Image
+      alt="剧本预览 3"
+      src={scenario3Img}
+      class:list={[scenarioImage, "top-[37dvh]"]}
+    />
+  </div>
+  <div
+    class:list={[
+      "absolute flex flex-1 flex-col items-center justify-center",
+      "bottom-[4dvh] w-full px-4",
+      "square:static square:flex-row square:gap-8",
+      "square:mb-[2dvh] square:max-w-full",
+    ]}
+  >
+    <Heading text="收录剧本" additionalClasses="square:mb-0" />
+    <p class="square:max-w-full square:text-[.9rem] max-w-[32dvh] text-[.7rem]">
+      包含龙骑士07亲自撰写的<br
+        class="square:hidden"
+      />《海猫鸣泣之时》所有正篇剧本与各篇番外剧本，收录了<strong
+        class="text-gold">至今最完整的《海猫》</strong
+      >游戏剧本。
+    </p>
+  </div>
+</Section>

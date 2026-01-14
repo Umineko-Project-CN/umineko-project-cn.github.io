@@ -1,0 +1,29 @@
+---
+import Header from "@components/Header.astro";
+import { type NavbarStyle } from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  navbarStyle?: NavbarStyle;
+}
+
+const { title, description, image, navbarStyle } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} image={image}>
+  <Header navbarStyle={navbarStyle} />
+  <main class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  html {
+    scroll-padding-top: 80px;
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Background from "@components/saku/Background.astro";
+import Header from "@components/saku/Header.astro";
+import Footer from "@components/saku/Footer.astro";
+import Navigation from "@components/saku/Navigation.astro";
+import Section from "@components/saku/Section.astro";
+import HeroSection from "@components/saku/sections/Hero.astro";
+import IntroductionSection from "@components/saku/sections/Introduction.astro";
+import ScenariosSection from "@components/saku/sections/Scenarios.astro";
+import FeaturesSection from "@components/saku/sections/Features.astro";
+import Cover from "@components/saku/Cover.astro";
+import ImageModal from "@components/saku/ImageModal.astro";
+
+import "swiper/css";
+---
+
+<BaseLayout
+  title="海猫鸣泣之时 咲 NS 版汉化补丁"
+  description="《海猫鸣泣之时 咲》Nintendo Switch版中文汉化补丁 - 为NS版《海猫鸣泣之时 咲》提供完整中文翻译，带您无障碍通往黄金乡。"
+>
+  <Navigation />
+
+  <div
+    id="mainSwiper"
+    class="swiper relative z-91 h-dvh w-dvw overflow-clip bg-black"
+  >
+    <Background />
+    <Header />
+    <Footer />
+
+    <main class="swiper-wrapper *:h-full *:w-full">
+      <HeroSection />
+      <Section id="dummy" />
+      <IntroductionSection />
+      <ScenariosSection />
+      <FeaturesSection />
+    </main>
+  </div>
+
+  <Cover />
+  <ImageModal />
+</BaseLayout>
+
+<style is:global>
+  html {
+    font-size: 2dvh;
+  }
+</style>
+
+<script>
+  import "@flyonui/overlay";
+  import "@scripts/saku";
+</script>

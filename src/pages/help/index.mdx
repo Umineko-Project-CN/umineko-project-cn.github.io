@@ -1,0 +1,152 @@
+---
+title: 帮助
+description: 海猫鸣泣之时汉化版帮助中心 - 提供PS3移植重制版和NS版常见问题解答、安装教程、移动端安装方法和常用技巧。
+---
+import Kbd from "@components/Kbd.astro"
+import Accordion from "@components/Accordion.astro"
+import AccordionItem from "@components/AccordionItem.astro"
+
+## PS3 移植重制版
+
+### 常见错误解决方法
+<Accordion>
+
+<AccordionItem id="faq-1-arrow" title="下载后解压失败">
+解压失败大多时候都是压缩软件过旧，或下载时出错造成的。  
+推荐所有玩家在 PC 上下载、解压游戏文件，并使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、 [WinRAR](https://www.rarlab.com/download.htm)
+等常用压缩软件进行解压。并检测压缩分包的 SHA1 校验码是否与网盘“1. 完整游戏”文件夹内“SHA1.txt”中记录的一致，不一致则需要重新下载该分包。（MD5 校验码可使用上述推荐软件 7-Zip 或 PeaZip 来检测）
+</AccordionItem>
+
+<AccordionItem id="faq-2-arrow" title="使用启动器更新失败">
+Windows 7 用户更新失败（显示：`System.IO.FileNotFoundException`）是因为缺少系统组件，可尝试在微软官网下载安装
+[.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer)
+解决。如果依然有更新问题，也可在“官网 &gt; 下载”页面的最下方手动分别下载更新档（包含脚本和资源包）。
+</AccordionItem>
+
+<AccordionItem id="faq-3-arrow" title="游戏没有声音">
+如果窗口栏显示 [Sound: Off] 说明你误按下了静音键。再次按切换静音的快捷键 <Kbd>ALT</Kbd>+<Kbd>M</Kbd> 即可再次开启声音。更多快捷键也可在下方“常用诀窍”中查看。  
+如果游戏声音开启，却仍有音频问题，请尝试修改 ons.cfg：  
+添加音频格式条目：`audioformat=VALUE`，其中 `VALUE` 的值请在 `s8, u8, s16, u16, s32, f32` 这几项中选择。  
+或者添加音频驱动条目：`audiodriver=VALUE`，其中 `VALUE` 的值请在 `directsound, winmm, wasapi` 这几项中选择。  
+如果以上设置仍不能解决问题，则为引擎兼容性问题，暂无法解决。请调整软硬件设备环境再次尝试。  
+而如果发现游戏中部分人物缺少语音，可能是误在环境设置中关闭了部分人物的声音，请前往游戏内的环境界面中的第三页，确认是否所有人物的语音都设置为开启。若依旧存在问题，请检查游戏文件是否解压正确。
+</AccordionItem>
+
+<AccordionItem id="faq-4-arrow" title="手柄没有反应">
+游戏只默认支持 Dualshock 3/4、Steam Controller、FuSa gamepad 等手柄。如使用的是 Xbox 手柄，可查阅 [常用诀窍](#自定义手柄键位) 中的解决方案。
+</AccordionItem>
+
+<AccordionItem id="faq-5-arrow" title="存档出现问题 / 无法存档读档">
+可以尝试在游戏的环境设置中选择“初始化游戏”，或前往下方“常用诀窍”所列出的存档路径，手动删除存档文件夹“UminekoPS3ficationCn”解决（删除后存档会消失，如有需要可以先备份）。
+</AccordionItem>
+
+</Accordion>
+
+### 移动端安装方法
+
+见 [iOS/Android 安装帮助](/help/umineko-project-faq#iosandroid-安装帮助)。
+
+### 常用诀窍
+
+> 更多内容参见 [Umineko Project FAQ](/help/umineko-project-faq)。
+
+#### 自定义设定文件
+除启动器的设置页面外，也可在初次启动游戏主程序后自动生成的“ons.cfg”中，使用记事本等文本工具，在其中另起一行加入下列代码，进行更细致的改动。  
+但请注意，部分改动**可能会导致产生 bug，甚至导致游戏崩溃**。
+
+#### 自定义窗口尺寸
+
+```ini
+window-width=数值
+```
+
+游戏的设置里只提供了 5 个游戏窗口大小的选择。其实你可以直接在 ons.cfg 加上一行： `window-width=数值`随你放大缩小游戏的画面。这里“数值”是随你填写的阿拉伯数字，比如 700、1100、1234、1400 之类，实际上代表窗口长度的像素，然后系统会按照 16:9 的比例决定宽度。所以如果写上`window-width=1920`，那窗口的大小就是 1920 x 1080。  
+另外请注意该选项会和 Windows 自带的应用缩放同时生效。因此如果发现窗口远大于自己设定的尺寸，可右键对游戏主程序文件（onscripter-ru.exe），在属性的“兼容性”一栏中，将 DPI 缩放修改为“应用程序”。
+
+**2. 自定义文字速度：**
+
+```ini
+final-voicedelay-time=数值
+```
+
+游戏内的环境设置中，可让你设定文字显示和自动模式播放的速度，不过你也可以在 ons.cfg 加上如`final-voicedelay-time=数值`，自由调整这个速度。  
+比如将该数值设置为 2200，系统每读完一句都会稍作停顿，不会马上翻页。
+
+#### 自动隐形鼠标
+
+```ini
+cursor=auto
+```
+
+鼠标未活动 5 秒会隐形。
+
+#### 自定义字体大小
+如觉得文本的字体过大，可以在 ons.cfg 中加入下列代码，将文本的字体大小缩放为 0.9 倍（也可将 0.9 替换为任何数字）：
+
+```ini
+font-multiplier=b1:0.9,b2:0.9,b3:0.9,b4:0.9,b5:0.9,b6:0.9,b7:0.9,p0:6:0.9,p1:1:0.9,p1:2:0.9,p1:3:0.9,p1:4:0.9,p1:5:0.9,p1:7:0.9,p2:1:0.9,p2:2:0.9,p2:3:0.9,p2:4:0.9,p2:5:0.9,p2:7:0.9,p41:1:0.9,p41:2:0.9,p41:3:0.9,p41:4:0.9,p41:5:0.9,p41:7:0.9,p42:1:0.9,p42:2:0.9,p42:3:0.9,p42:4:0.9,p42:5:0.9,p42:7:0.9
+```
+
+但请注意，使用此代码可能会出现字体**忽大忽小** **的 bug**，且字体过大时**会导致游戏崩溃**。请谨慎使用。
+
+#### 自定义手柄键位
+手柄默认只支持 DualShock 3/4、Steam Controller、FuSa gamepad。如果你使用 Xbox 手柄，可以尝试在 ons.cfg 中加入下列代码：
+
+```ini
+pad-map=3,1,0,2,8,4,18,19,20,21,9,-1,-1,-1,-1,5,-1,-1
+```
+
+或可以在 ons.cfg 中加入`use-console`与`debug`两行代码后启动，自行在控制台页面中查看手柄按键对应的数字，按下列顺序填入上述代码中（“-1”为不映射按键）：  
+
+```
+回看,确定,取消,菜单,自动,快进,下,左,上,右,静音,未知,未知,未知,按住快进,未知,未知
+```
+
+#### 常用的快捷键
+| 快捷键 | 功能 |
+| --- | --- |
+| <Kbd>A</Kbd> | 自动播放 |
+| <Kbd>F</Kbd> | 全屏/窗口模式切换 |
+| <Kbd>Alt</Kbd>+<Kbd>S</Kbd> / <Kbd>Ctrl</Kbd>+<Kbd>S</Kbd> | 快进 |
+| <Kbd>Alt</Kbd>+<Kbd>M</Kbd> | 静音/取消静音 |
+| 鼠标右键 | 打开/关闭菜单  
+| 鼠标滚轮 | 打开“剧情回顾”界面
+
+此外，一些页面的左下角也有设有操作提示，点击可以查看该界面中的快捷键。
+
+#### 存档路径
+Windows Vista 或以上系统中的路径：  
+```
+%SYSTEMDRIVE%\ProgramData\ONScripter-RU\UminekoPS3Fication\*\*\
+```
+
+Windows XP 系统中的路径：  
+```
+%SYSTEMDRIVE%\Documents and Settings\All Users\Application Data\ONScripter-RU\UminekoPS3Fication\*\*\
+```
+
+启用 iCloud Drive app 的情况下的路径：  
+```
+iCloud Drive\ONScripter-RU\UminekoPS3Fication\*\*\
+```
+
+macOS 10.7+, iCloud 中的路径：  
+```
+~/Library/Mobile Documents/com~apple~CloudDocs/ONScripter-RU/UminekoPS3Fication\*\*/
+```
+
+macOS 10.6 系统中的路径：  
+```
+~/Library/Application Support/ONScripter-RU/UminekoPS3Fication\*\*/
+```
+
+Linux 系统中的路径：  
+```
+~/.onscripter/UminekoPS3Fication\*\*
+```
+
+如要停止 iCloud storage 的存档功能，可在 ons.cfg 加上以下一行指令： `disable-icloud`
+
+## NS 版汉化补丁
+
+> 待补充……

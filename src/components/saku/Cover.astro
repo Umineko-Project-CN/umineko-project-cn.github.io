@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+import titleImg from "@assets/pages/saku/page-title.webp";
+---
+
+<div
+  id="cover"
+  class:list={[
+    "fixed top-[120%] left-0 z-90 flex h-dvh w-dvw flex-col items-center",
+    "pointer-events-none bg-[#6c604c] transition-[top,opacity]",
+  ]}
+>
+  <Image
+    alt=""
+    src={titleImg}
+    class:list={[
+      "absolute -top-[11dvh] w-[40dvh] rotate-90",
+      "square:-top-[16dvh] square:w-[60dvh]",
+    ]}
+  />
+  <p
+    class:list={[
+      "text-gold absolute top-[63dvh] text-center font-serif tracking-[.16em]",
+      "square:text-[1.2rem] text-[.85rem]",
+    ]}
+  >
+    UMINEKO WHEN THEY CRY SAKU<br />
+    ~Symphony of Catbox and Dreams~
+  </p>
+</div>

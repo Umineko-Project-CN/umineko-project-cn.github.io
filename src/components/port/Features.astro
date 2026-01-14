@@ -1,0 +1,73 @@
+---
+import Icon from "@components/Icon.astro";
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import featureImg from "@assets/pages/port/feature.webp";
+import bgKv from "@assets/pages/port/kv.webp";
+
+const features = [
+  {
+    icon: clsx`tabler--sparkles`,
+    text: "完整还原 PS3 版游戏的 CG、语音、特效、动态立绘。",
+  },
+  {
+    icon: clsx`tabler--badge-hd`,
+    text: "全高清 1080p 画质， 60fps 帧率。",
+  },
+  {
+    icon: clsx`tabler--devices`,
+    text: "支持 Windows、macOS、Linux、Android、iOS 系统。",
+  },
+  {
+    icon: clsx`tabler--language`,
+    text: "支持中文、英文、俄文等多种语言。",
+  },
+  {
+    icon: clsx`tabler--settings`,
+    text: "渲染引擎迁移至 OpenGL，并对游戏进行全面重制。",
+  },
+  {
+    icon: clsx`tabler--trending-up-3`,
+    text: "优化 PS3 版旧有游戏系统，并全新增加奖杯、注释、曲名与歌词本地化等便利功能。",
+  },
+];
+---
+
+<section
+  class:list={[
+    "border-t-8 border-[#b39e7c]",
+    "bg-white bg-cover bg-center bg-no-repeat md:bg-(image:--features-bg)",
+  ]}
+  style={`--features-bg: url('${bgKv.src}')`}
+>
+  <div
+    class="bg-(image:--features-bg-mobile) bg-cover bg-center bg-no-repeat md:hidden"
+    style={`--features-bg-mobile: url('${bgKv.src}')`}
+  >
+    <Image
+      class="mx-auto w-4/7 py-[10dvw]"
+      src={featureImg}
+      alt="Feature"
+    />
+  </div>
+  <div class="container text-lg md:pt-20">
+    <div class="flex flex-col-reverse md:flex-row">
+      <div class="flex-2 border-[#b39e7c] text-[#b39e7c] md:border-r-2 md:pr-6">
+        <ul class="space-y-4">
+          {
+            features.map((item) => (
+              <li class="flex items-center">
+                <Icon class:list={[item.icon, "mr-6 flex-shrink-0 text-4xl"]} />
+                {item.text}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="hidden flex-1 pl-6 md:block">
+        <Image class="w-full" src={featureImg} alt="Feature" />
+      </div>
+    </div>
+  </div>
+</section>

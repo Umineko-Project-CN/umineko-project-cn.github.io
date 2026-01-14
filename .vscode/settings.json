@@ -1,0 +1,24 @@
+{
+  "tailwindCSS.classFunctions": ["clsx"],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "[js]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "[ts]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "prettier.prettier-vscode"
+  }
+}

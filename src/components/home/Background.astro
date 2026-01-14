@@ -1,0 +1,25 @@
+---
+import noiseSvg from "@assets/common/noise.svg";
+---
+
+<div
+  class="pointer-events-none fixed inset-0 overflow-hidden bg-[#020204] select-none"
+>
+  <div
+    class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(20,15,45,0.7)_0%,rgba(5,5,10,1)_100%)]"
+  >
+  </div>
+  <div
+    class="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/80"
+  >
+  </div>
+
+  <div id="dust-particles" class="absolute inset-0"></div>
+  <div id="crystal-particles" class="absolute inset-0"></div>
+
+  <div
+    class="absolute inset-0 bg-(image:--noise-bg) opacity-[0.05]"
+    style={`--noise-bg: url('${noiseSvg.src}')`}
+  >
+  </div>
+</div>

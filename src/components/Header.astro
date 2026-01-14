@@ -1,0 +1,162 @@
+---
+import Icon from "@components/Icon.astro";
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import logoImg from "@assets/logo/logo.webp";
+
+export type NavbarStyle = "normal" | "transparent" | "transparent-on-top";
+
+interface Props {
+  navbarStyle?: NavbarStyle;
+}
+
+const { navbarStyle = "normal" } = Astro.props;
+
+let headerClass;
+if (navbarStyle === "transparent") {
+  headerClass = clsx`fixed bg-transparent`;
+} else if (navbarStyle === "transparent-on-top") {
+  headerClass = clsx`bg-base-200 fixed [.on-top]:bg-transparent`;
+} else {
+  headerClass = clsx`bg-base-200 sticky`;
+}
+---
+
+<header
+  id="navbar"
+  class:list={[
+    "navbar group top-0 z-50 w-full p-0",
+    "md:shadow-base-300/20 on-top shadow-sm [.on-top]:shadow-none",
+    "transition-[background-color,box-shadow] duration-500",
+    headerClass,
+  ]}
+>
+  <div class="container md:flex md:items-center md:gap-2">
+    <div
+      class:list={[
+        "navbar-start items-center justify-between max-md:w-full",
+        "h-16 transition-[height] duration-300 md:group-[.on-top]:h-20",
+      ]}
+    >
+      <a
+        href="/"
+        class:list={[
+          "btn btn-text btn-xl p-2 md:group-[.on-top]:h-18",
+          "transition-[height,background-color] duration-300",
+        ]}
+        aria-label="Homepage Link"
+      >
+        <Image
+          src={logoImg}
+          class="h-full w-auto"
+          loading="eager"
+          alt="日不落汉化组"
+        />
+      </a>
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="collapse-toggle btn btn-text btn-neutral btn-lg btn-circle"
+          data-collapse="#navbar-collapse"
+          aria-controls="navbar-collapse"
+          aria-label="Toggle navigation"
+        >
+          <Icon class="tabler--menu-2 collapse-open:hidden size-8" />
+          <Icon class="tabler--x collapse-open:block hidden size-8" />
+        </button>
+      </div>
+    </div>
+    <nav
+      id="navbar-collapse"
+      class:list={[
+        "md:navbar-end collapse hidden grow basis-full overflow-hidden max-md:w-full",
+        "rounded-box max-md:bg-base-200 -mx-2 transition-[height,box-shadow] duration-300",
+        "shadow-base-300/20 group-[.on-top]:max-md:shadow-sm",
+      ]}
+    >
+      <ul class="menu md:menu-horizontal gap-2 text-base">
+        <li><a href="/">首页</a></li>
+        <li
+          class="dropdown relative inline-flex [--auto-close:inside] [--offset:9] [--placement:bottom-end]"
+        >
+          <button
+            id="dropdown-nav-introduction"
+            type="button"
+            class="dropdown-toggle dropdown-open:bg-base-content/10 dropdown-open:text-base-content"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-label="Dropdown"
+          >
+            介绍
+            <Icon
+              class="tabler--chevron-down dropdown-open:rotate-180 size-4"
+            />
+          </button>
+          <ul
+            class="dropdown-menu dropdown-open:opacity-100 hidden"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="dropdown-nav-introduction"
+          >
+            <li>
+              <a class="dropdown-item" href="/port">PS3 移植重制版</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/saku">NS 版汉化补丁</a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="dropdown relative inline-flex [--auto-close:inside] [--offset:9] [--placement:bottom-end]"
+        >
+          <button
+            id="dropdown-nav-download"
+            type="button"
+            class="dropdown-toggle dropdown-open:bg-base-content/10 dropdown-open:text-base-content"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-label="Dropdown"
+          >
+            下载
+            <Icon
+              class="tabler--chevron-down dropdown-open:rotate-180 size-4"
+            />
+          </button>
+          <ul
+            class="dropdown-menu dropdown-open:opacity-100 hidden"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="dropdown-nav-download"
+          >
+            <li>
+              <a class="dropdown-item" href="/download/port">PS3 移植重制版</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="/download/saku">NS 版汉化补丁</a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="/help">帮助</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import "@flyonui/dropdown";
+  import "@flyonui/collapse";
+
+  const navbar = document.getElementById("navbar")!;
+
+  function updateNavbar() {
+    if (window.scrollY > 50) {
+      navbar.classList.remove("on-top");
+    } else {
+      navbar.classList.add("on-top");
+    }
+  }
+
+  updateNavbar();
+  window.addEventListener("scroll", updateNavbar);
+</script>

@@ -1,0 +1,119 @@
+---
+import "../styles/global.css";
+import { Image, getImage } from "astro:assets";
+
+import icon from "@assets/favicon.webp";
+import loadingImage from "@assets/common/loading.webp";
+
+const favicon = await getImage({ src: icon, width: 144 });
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { description, image } = Astro.props;
+const title = `${Astro.props.title} - 日不落汉化组`;
+---
+
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/webp" href={favicon.src} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={new URL(image, Astro.url)} />}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    {
+      image && (
+        <meta property="twitter:image" content={new URL(image, Astro.url)} />
+      )
+    }
+  </head>
+  <body
+    class:list={[
+      "relative flex min-h-dvh flex-col antialiased",
+      "selection:bg-secondary/70",
+    ]}
+  >
+    <slot />
+
+    <div
+      id="loading-mask"
+      class:list={[
+        "fixed inset-0 z-99 flex items-end justify-end",
+        "bg-black/40 opacity-0 transition-opacity duration-200",
+      ]}
+      style="view-transition-name: loading-indicator"
+    >
+      <Image
+        class="max-w-[80dvw] sm:max-w-[60dvw] md:max-w-[40dvw]"
+        src={loadingImage}
+        loading="eager"
+        alt="黄金蝶"
+      />
+    </div>
+
+    <script>
+      const mask = document.getElementById("loading-mask")!;
+
+      const fadeOut = () => {
+        mask.style.opacity = "0";
+        setTimeout(() => {
+          mask.style.pointerEvents = "none";
+        }, 200);
+      };
+
+      const fadeIn = () => {
+        mask.style.pointerEvents = "auto";
+        mask.style.opacity = "1";
+      };
+
+      window.addEventListener("load", fadeOut);
+
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          if (
+            link &&
+            link.href &&
+            link.origin === window.location.origin &&
+            link.pathname !== window.location.pathname &&
+            link.target !== "_blank" &&
+            !e.metaKey &&
+            !e.ctrlKey &&
+            !e.shiftKey &&
+            !e.altKey
+          ) {
+            e.preventDefault();
+            fadeIn();
+            setTimeout(() => {
+              window.location.href = link.href;
+            }, 50);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  ::view-transition-group(loading-indicator) {
+    animation-duration: 0.5s;
+  }
+</style>

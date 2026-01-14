@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@iconify/tailwind4" {
+  prefixes: tabler;
+}
+@plugin "flyonui";
+@import "../../node_modules/flyonui/variants.css";
+@source "../../node_modules/flyonui/index.js";
+
+/* 
+https://daisyui.com/theme-generator/#theme=eJyVlOFugyAUhV-FmCzZkkoABWFvQ_W6mlowoFm3Ze8-xKTS6o_uJ_d8HM6FG34yoy-QvWfTpTNwttkhq21vXe7rE0Sh0e4cqnm-1I_aQ04JCYo99_XptaheEEHk7ZFhCcPEPlOkDNlnamtGMOONU7MXJqRCrKywVCLdMbjuot3XDRY8wkKiSuGC7qAb_9DbJoiHQDWpcSmjsSwqRAkuduFt9GUTKZboXKbbdF2nrCxmNoRBkmEmtuRTwQ1Mo9P9fYJdZGO382adae1N57EZymVohmIlxCP5v_b9FLryfn05Fu1ViWipMKPlDvy_Ez61M535WE-Ig0QrhbgMs7HHPnXH4Jx162CUi2sYTxGmU23IZ0M73XSTD9PUQz3GA6iDSyq1HfRNqBPMH5Sjvaa8774hNSKY8TttdVqFo3UNLDQfrrHUwDCeZuO4Mrbz8wdBwqqBVk996Gl0ExyywUELzsevI5Z-_wCs80Sp
+*/
+@plugin "flyonui/theme" {
+  name: "umineko";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(37% 0 0);
+  --color-base-200: oklch(26% 0 0);
+  --color-base-300: oklch(20% 0 0);
+  --color-base-content: oklch(96% 0.007 247.896);
+  --color-primary: oklch(65% 0.068 79.31);
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: oklch(48% 0.0837 10.3);
+  --color-secondary-content: oklch(98% 0.003 247.858);
+  --color-accent: oklch(83% 0.1 82.26);
+  --color-accent-content: oklch(100% 0 0);
+  --color-neutral: oklch(98% 0 0);
+  --color-neutral-content: oklch(26% 0 0);
+  --color-info: oklch(58% 0.158 241.966);
+  --color-info-content: oklch(98% 0.003 247.858);
+  --color-success: oklch(62% 0.194 149.214);
+  --color-success-content: oklch(98% 0.003 247.858);
+  --color-warning: oklch(66% 0.179 58.318);
+  --color-warning-content: oklch(100% 0 0);
+  --color-error: oklch(44% 0.177 26.899);
+  --color-error-content: oklch(98% 0.003 247.858);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 0.5px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@custom-variant square (@media (min-aspect-ratio: 1/1));
+@custom-variant wide (@media (min-aspect-ratio: 16/9));
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+@theme {
+  --text-tiny: 0.625rem;
+  --color-gold: #d2ba93;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@view-transition {
+  navigation: auto;
+}

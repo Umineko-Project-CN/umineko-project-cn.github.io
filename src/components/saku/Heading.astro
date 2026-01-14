@@ -1,0 +1,35 @@
+---
+import bgTitleImg from "@assets/pages/saku/title.svg";
+
+interface Props {
+  text: string;
+  additionalClasses?: string;
+}
+
+const { text, additionalClasses } = Astro.props;
+---
+
+<div class="square:justify-start flex justify-center">
+  <div
+    class:list={[
+      "relative mb-[1em] flex h-[2em] w-[10em] items-center justify-center text-[.8rem]",
+      "square:-ml-[2dvh] square:text-[1.18rem]",
+      additionalClasses,
+    ]}
+  >
+    <div
+      class:list={[
+        "bg-(image:--bg-title) bg-contain bg-center bg-no-repeat",
+        "h-full w-full drop-shadow-[0_0_0.25em_black]",
+      ]}
+      style={`--bg-title: url('${bgTitleImg.src}')`}
+    >
+    </div>
+    <span
+      class:list={[
+        "absolute font-serif font-bold tracking-[0.2em] text-transparent",
+        "bg-linear-0 from-[rgb(68,68,68)] to-[rgb(30,30,30)] bg-clip-text",
+      ]}>{text}</span
+    >
+  </div>
+</div>

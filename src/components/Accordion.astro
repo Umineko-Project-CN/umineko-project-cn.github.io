@@ -1,0 +1,15 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["accordion divide-neutral/20 divide-y", className]}>
+  <slot />
+</div>
+
+<script>
+  import "@flyonui/accordion";
+</script>

@@ -1,0 +1,73 @@
+---
+import Section from "../Section.astro";
+import Heading from "../Heading.astro";
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import filmImg from "@assets/pages/saku/film.webp";
+import exclaimImg from "@assets/pages/saku/exclaim.svg";
+
+const paragraph = clsx(
+  "square:mb-0 relative mb-[0.75dvh]",
+  "before:absolute before:h-[1.2em] before:w-[1em] before:-translate-x-[1em]",
+  "before:bg-(image:--exclaim-icon) before:bg-contain before:bg-center before:bg-no-repeat",
+);
+const note = clsx("text-gold text-[.75em] font-bold tracking-[0.04em]");
+---
+
+<Section class="square:flex-row flex flex-col items-center">
+  <div class="square:m-0 square:w-1/2 mt-[11.5%] mb-[10%]">
+    <Image
+      alt="游戏预览"
+      src={filmImg}
+      class:list={[
+        "relative left-1/2 w-[150%] max-w-fit -translate-x-1/2 -rotate-3",
+        "square:absolute square:left-auto square:top-1/2 square:right-[52.5%] square:w-[105dvh]",
+        "square:translate-x-0 square:-translate-y-1/2 square:rotate-0",
+      ]}
+    />
+  </div>
+  <div
+    class:list={[
+      "w-full max-w-[38dvh] px-[1em] text-[0.7rem]",
+      "square:max-w-1/2 square:px-0 square:pl-[2dvh]",
+      "square:text-[.9rem] square:leading-6",
+    ]}
+  >
+    <div class="square:mb-8">
+      <Heading text="补丁介绍" />
+      <p class="mb-4">
+        本汉化补丁是<br
+          class="square:inline hidden"
+        />用于NS游戏《うみねこのなく頃に咲 ～猫箱と夢想の交響曲～》的MOD。<br />
+        由日不落汉化组基于umineko-catbox-english等开源项目制作。<br />
+        <span class={note}>本汉化补丁分为"基础版"与"还原版"双版本。</span>
+      </p>
+      <p class="mb-4">
+        所有翻译文本基于各位译者的翻译底本，<br />
+        并经我们进一步校对、润色而成。<br />
+        <span class={note}
+          >感谢前原K1(暨MMR六轩岛调查队)、Fancia.葵、yukino的授权。</span
+        >
+      </p>
+    </div>
+    <div style={`--exclaim-icon: url('${exclaimImg.src}')`}>
+      <Heading text="注意事项" />
+      <p class={paragraph}>
+        本补丁是NS游戏的汉化MOD。<strong class="text-red-400"
+          >不包含本体游戏。</strong
+        >
+      </p>
+      <p class={paragraph}>
+        本补丁只可用于NS模拟器或已破解NS主机，<br
+          class="square:hidden"
+        /><strong class="text-red-400">不可用于未破解NS主机。</strong>
+      </p>
+      <p class={paragraph}>
+        本补丁为免费发布，仅供学习交流使用，<strong class="text-red-400"
+          >请勿商用。</strong
+        >
+      </p>
+    </div>
+  </div>
+</Section>

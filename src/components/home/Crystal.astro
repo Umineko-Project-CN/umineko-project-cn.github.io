@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import bannerPort from "@assets/common/port.webp";
+import bannerSaku from "@assets/common/saku.webp";
+import bgPort from "@assets/pages/port/keyvisual.webp";
+import bgSaku from "@assets/pages/saku/head.webp";
+
+interface Props {
+  type: "port" | "saku";
+}
+
+const port = {
+  label: "PS3 Remaked Port",
+  href: "/port",
+  banner: bannerPort,
+  bannerAlt: "海猫鸣泣之时 Umineko Project 视觉图预览",
+  shape:
+    "polygon(35% 0%, 90% 15%, 100% 55%, 80% 100%, 25% 90%, 0% 65%, 10% 20%)",
+  color: clsx`bg-indigo-950/10`,
+  aurora: clsx`from-blue-500/40 via-indigo-500/20 to-transparent`,
+  backgroundClass: clsx`bg-(image:--crystal-bg) bg-cover bg-position-[62%] bg-no-repeat`,
+  backgroundImage: bgPort,
+};
+
+const saku = {
+  label: "NS Chinese Patch",
+  href: "/saku",
+  banner: bannerSaku,
+  bannerAlt: "海猫鸣泣之时 咲 Umineko Saku 视觉图预览",
+  shape: "polygon(45% 5%, 100% 25%, 90% 70%, 55% 100%, 5% 85%, 0% 50%, 25% 5%)",
+  color: clsx`bg-amber-950/10`,
+  aurora: clsx`from-gold-500/40 via-amber-500/20 to-transparent`,
+  backgroundClass: clsx`bg-(image:--crystal-bg) bg-size-[300%] bg-position-[74%_40%] bg-no-repeat`,
+  backgroundImage: bgSaku,
+};
+
+const {
+  label,
+  href,
+  banner,
+  bannerAlt,
+  shape,
+  color,
+  aurora,
+  backgroundClass,
+  backgroundImage,
+} = Astro.props.type === "port" ? port : saku;
+---
+
+<div id={`crystal-${Astro.props.type}`} class="crystal relative">
+  <div
+    class:list={[
+      "aurora-effect absolute -inset-48 rounded-full bg-linear-to-tr opacity-0 blur-[120px]",
+      aurora,
+    ]}
+  >
+  </div>
+
+  <a
+    href={href}
+    class:list={[
+      "crystal-container relative block aspect-4/5 h-full w-full backdrop-blur-lg",
+      color,
+    ]}
+    style={{ clipPath: shape }}
+    aria-label={label}
+  >
+    <div class="highlight-layer pointer-events-none absolute inset-0"></div>
+
+    <div
+      class:list={[
+        "crystal-background pointer-events-none absolute inset-0 scale-100 opacity-60 select-none",
+        "mask-[radial-gradient(circle,white_0%,transparent_60%)] mask-cover blur-[2px]",
+        backgroundClass,
+      ]}
+      style={`--crystal-bg: url('${backgroundImage.src}')`}
+    >
+    </div>
+
+    <div
+      class="crystal-content flex h-full w-full items-center justify-center p-4 opacity-0 blur-xs drop-shadow-2xl"
+    >
+      <Image src={banner} loading="eager" alt={bannerAlt} />
+    </div>
+  </a>
+</div>

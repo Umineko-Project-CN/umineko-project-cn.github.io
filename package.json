@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "snsteam-portal",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,6 +9,39 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.15.3"
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.6.1",
+    "@tsparticles/slim": "^3.9.1",
+    "astro": "5.16.4",
+    "flyonui": "^2.4.1",
+    "motion": "^12.26.2",
+    "swiper": "^12.0.3"
+  },
+  "devDependencies": {
+    "@eslint/css": "^0.14.1",
+    "@eslint/js": "^9.39.2",
+    "@eslint/markdown": "^7.5.1",
+    "@iconify-json/tabler": "^1.2.26",
+    "@iconify/tailwind4": "^1.2.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.1.18",
+    "eslint": "^9.39.2",
+    "eslint-plugin-astro": "^1.5.0",
+    "globals": "^17.0.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "remark-cjk-friendly": "^1.2.3",
+    "rollup-plugin-visualizer": "^6.0.5",
+    "tailwindcss": "^4.1.18",
+    "typescript-eslint": "^8.53.0"
+  },
+  "prettier": {
+    "tailwindFunctions": [
+      "clsx"
+    ],
+    "plugins": [
+      "prettier-plugin-astro",
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

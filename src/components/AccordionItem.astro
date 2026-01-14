@@ -1,0 +1,51 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  id?: string;
+  title?: string;
+  active?: boolean;
+}
+
+const { id: providedId, title, active } = Astro.props;
+
+// Generate a unique ID if not provided
+const generateId = () => {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return `accordion-${crypto.randomUUID().slice(0, 8)}`;
+  }
+  // Fallback for environments without crypto.randomUUID
+  return `accordion-${Math.random().toString(36).substring(2, 10)}`;
+};
+
+const id = providedId || generateId();
+---
+
+<div class:list={["accordion-item", { active }]} id={id}>
+  <button
+    class="accordion-toggle inline-flex items-center gap-x-4 text-start"
+    aria-controls={`${id}-collapse`}
+    aria-expanded={active ? "true" : "false"}
+  >
+    <Icon
+      class:list={[
+        "tabler--chevron-right size-5 shrink-0",
+        "accordion-item-active:rotate-90 transition-transform duration-300 rtl:rotate-180",
+      ]}
+    />
+    {title || <slot name="title" />}
+  </button>
+  <div
+    id={`${id}-collapse`}
+    class:list={[
+      "accordion-content w-full overflow-hidden transition-[height] duration-300",
+      { hidden: !active },
+    ]}
+    aria-labelledby={id}
+    role="region"
+  >
+    <div class="px-5 pb-4">
+      <slot />
+    </div>
+  </div>
+</div>

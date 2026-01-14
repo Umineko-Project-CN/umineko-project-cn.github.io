@@ -1,0 +1,66 @@
+---
+import Icon from "@components/Icon.astro";
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import logoImg from "@assets/logo/logo-2.webp";
+
+const links = [
+  {
+    name: "07th Expansion",
+    icon: clsx`tabler--circle-number-7`,
+    link: "http://07th-expansion.net/",
+  },
+  {
+    name: "Umineko Project",
+    icon: clsx`tabler--code`,
+    link: "http://umineko-project.org/",
+  },
+  {
+    name: "黄金魔女的番茄园",
+    icon: clsx`tabler--butterfly`,
+    link: "http://seacatcry.com/",
+  },
+  {
+    name: "海猫鸣泣之时贴吧",
+    icon: clsx`tabler--brand-baidu`,
+    link: "http://tieba.baidu.com/%E6%B5%B7%E7%8C%AB%E9%B8%A3%E6%B3%A3%E4%B9%8B%E6%97%B6",
+  },
+  {
+    name: "购买 Steam 正版",
+    icon: clsx`tabler--brand-steam`,
+    link: "http://store.steampowered.com/bundle/5465/Umineko_When_They_Cry_Complete_Collection/",
+  },
+  {
+    name: "购买 PS4/NS 正版",
+    icon: clsx`tabler--device-gamepad-3`,
+    link: "http://entergram.co.jp/umineko/",
+  },
+];
+---
+
+<footer class="bg-base-200 text-center">
+  <div class="container py-8">
+    <Image class="mx-auto w-36" src={logoImg} alt="日不落汉化组" />
+    <div class="mt-4 flex flex-wrap justify-center gap-4">
+      {
+        links.map((item) => (
+          <a
+            class="btn btn-text flex h-auto flex-col items-center p-2 text-white/80"
+            href={item.link}
+          >
+            <Icon class:list={["mx-auto text-4xl", item.icon]} />
+            <div class="text-tiny">{item.name}</div>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="divider my-6"></div>
+
+    <div class="text-tiny text-center text-white/50">
+      日不落汉化组 本网站发布的内容与 07th Expansion 或 Entergram
+      没有直接关系，热爱本作品请购买正版。
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,97 @@
+---
+import Icon from "@components/Icon.astro";
+import Section from "../Section.astro";
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import sloganImg from "@assets/pages/saku/slogan.webp";
+import bannerImg from "@assets/common/saku.webp";
+
+const buttonItems = [
+  {
+    href: "/download/saku",
+    icon: clsx`tabler--download`,
+    title: "前往下载",
+    subtitle: "DOWNLOAD THE MOD",
+    additionalClass: clsx`btn-primary`,
+  },
+  {
+    href: "https://store-jp.nintendo.com/item/software/D70010000012343",
+    icon: clsx`tabler--shopping-bag`,
+    title: "购买正版",
+    subtitle: "GO TO THE ESHOP",
+    additionalClass: clsx`btn-secondary`,
+  },
+];
+---
+
+<Section noDefaultPadding>
+  <Image
+    alt="将这「爱」的推理剧，献给千人——"
+    src={sloganImg}
+    loading="eager"
+    class:list={[
+      "absolute top-[7dvh] w-full",
+      "square:top-[31dvh] square:left-[5dvh] square:w-[44%]",
+    ]}
+  />
+  <Image
+    alt="海猫鸣泣之时 咲"
+    src={bannerImg}
+    loading="eager"
+    class:list={[
+      "absolute bottom-[17dvh] left-1/2 w-[110%] max-w-none -translate-x-1/2",
+      "square:top-[36dvh] square:left-[1dvh] square:w-[48.5%] square:translate-x-0",
+    ]}
+  />
+  <div
+    class:list={[
+      "absolute bottom-[2dvh] flex w-full flex-col items-stretch gap-[3dvh]",
+      "square:bottom-[3.5dvh] square:flex-row square:items-center square:gap-0",
+    ]}
+  >
+    <div
+      class:list={[
+        "square:px-[4.5dvh] px-[1.5dvh]",
+        "square:basis-1/2 flex justify-between",
+      ]}
+    >
+      {
+        buttonItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "btn h-[unset] rounded-lg px-[2.6em] py-[0.3em]",
+              "square:rounded-xl square:px-[1.8em] square:py-[0.5em]",
+              "square:text-[1.1rem] text-[0.9rem] text-shadow-md",
+              "flex items-center justify-center",
+              item.additionalClass,
+            ]}
+          >
+            <Icon
+              class:list={["square:text-[1.4em] text-[1.2em]", item.icon]}
+            />
+            {/* prettier-ignore */}
+            <div>
+              <span class="tracking-[0.2em]">{item.title}</span>
+              <span class:list={[
+                  "hidden text-[0.5em] font-semibold tracking-[0.15em]",
+                  "square:block wide:inline",
+                ]}>{item.subtitle}</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+    <div
+      class:list={[
+        "text-gold square:basis-1/2 text-center font-semibold",
+        "text-[0.45em] leading-[2em] tracking-[0.13em]",
+        "square:text-[0.7em] square:tracking-widest",
+      ]}
+    >
+      本补丁仅供学习交流使用，请勿商用。使用本补丁前，请自觉购买本游戏。<br />
+      也请遵守官方的各项守则。若有违反，所造成的一切后果汉化组概不负责。
+    </div>
+  </div>
+</Section>

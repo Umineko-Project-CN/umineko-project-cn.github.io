@@ -1,0 +1,9 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"span">
+
+const { class: className, ...attrs } = Astro.props as Props;
+---
+
+<span class:list={["iconify", className]} {...attrs}></span>

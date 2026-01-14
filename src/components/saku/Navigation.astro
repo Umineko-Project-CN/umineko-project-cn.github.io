@@ -1,0 +1,117 @@
+---
+import Icon from "@components/Icon.astro";
+import { Image } from "astro:assets";
+import clsx from "clsx";
+
+import bannerImg from "@assets/common/saku.webp";
+import titleImg from "@assets/pages/saku/page-title.webp";
+import logo2Img from "@assets/logo/logo-1.webp";
+
+const menuItemBorder = clsx(
+  "from-gold/0 via-gold/100 to-gold/0 bg-linear-to-r",
+  "square:h-[0.5dvh] h-[0.3dvh]",
+);
+
+const titleItems = [
+  { title: "介绍", subtitle: "INTRODUCTION" },
+  { title: "剧本", subtitle: "SCENARIOS" },
+  { title: "特色", subtitle: "FEATURES" },
+];
+---
+
+<nav>
+  <button
+    type="button"
+    class:list={[
+      "btn btn-text fixed top-0 right-0 z-81 mx-[2dvh] my-[2.5dvh]",
+      "square:h-[10dvh] square:w-[13dvh] h-[6dvh] w-[8dvh]",
+      "text-gold square:text-[5rem] text-[3rem]",
+      "aria-expanded:[&_#menuClose]:opacity-100 aria-expanded:[&_#menuOpen]:opacity-0",
+    ]}
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="navPanel"
+    data-overlay="#navPanel"
+  >
+    <Icon
+      id="menuOpen"
+      class="tabler--menu-2 absolute transition-opacity duration-300"
+    />
+    <Icon
+      id="menuClose"
+      class="tabler--x absolute opacity-0 transition-opacity duration-300"
+    />
+  </button>
+  <div
+    id="navPanel"
+    role="dialog"
+    class:list={[
+      "overlay overlay-open:translate-x-0 drawer drawer-end hidden max-w-none",
+      "square:w-[75dvh] h-dvh w-dvw",
+      "bg-black/30 backdrop-blur-[4dvh]",
+    ]}
+    tabindex="-1"
+  >
+    <div class="drawer-header justify-center p-0">
+      <button
+        type="button"
+        id="menuBanner"
+        data-overlay="#navPanel"
+        class="btn btn-text my-[10dvh] h-[20dvh]"
+      >
+        <Image src={bannerImg} alt="海猫鸣泣之时 咲" class="h-full w-auto" />
+      </button>
+    </div>
+    <div role="menu" class="drawer-body flex grow-0 flex-col p-0">
+      {
+        titleItems.map((item, index) => (
+          <Fragment>
+            {index == 0 && <div class={menuItemBorder} />}
+
+            <button
+              type="button"
+              role="menuitem"
+              data-overlay="#navPanel"
+              style="--tw-scale-x:1 --tw-scale-y:1"
+              class:list={[
+                "btn btn-text square:h-[11dvh] h-[10.5dvh] overflow-hidden rounded-none p-0",
+                "flex items-stretch justify-center",
+              ]}
+            >
+              <div
+                class:list={[
+                  "relative w-[48dvh] pl-20 font-serif text-[2em]",
+                  "square:w-full square:pl-32 square:text-[2.5em]",
+                ]}
+              >
+                <Image
+                  src={titleImg}
+                  alt=""
+                  class:list={[
+                    "absolute top-1/2 -left-[2.6em] h-[150%] w-auto -translate-y-1/2",
+                    "square:-left-[1.6em]",
+                  ]}
+                />
+                <div class="flex h-full items-center gap-[0.7em]">
+                  <span class="font-extrabold tracking-[0.15em]">
+                    {item.title}
+                  </span>
+                  <span class="text-[0.64em] tracking-widest">
+                    {item.subtitle}
+                  </span>
+                </div>
+              </div>
+            </button>
+
+            <div class={menuItemBorder} />
+          </Fragment>
+        ))
+      }
+    </div>
+    <div class="drawer-footer grow justify-center p-0">
+      <a href="/" class="btn btn-text h-auto px-4 py-2">
+        <Image src={logo2Img} alt="日不落汉化组" class="h-[6dvh] w-auto" />
+      </a>
+    </div>
+  </div>
+</nav>

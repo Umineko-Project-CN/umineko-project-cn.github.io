@@ -1,11 +1,56 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Background from "@components/home/Background.astro";
+import Crystal from "@components/home/Crystal.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import logo from "@assets/logo/logo-2.webp";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout
+  title="海猫鸣泣之时 中文汉化 | 碎片之海"
+  description="日不落汉化组官方站点 - 提供《海猫鸣泣之时》全系列中文汉化补丁下载，包括PS3移植重制版和NS版《咲》汉化补丁。无爱便不得见。"
+>
+  <Header navbarStyle="transparent" />
+
+  <Background />
+
+  <div class="flex min-h-screen items-center justify-center overflow-hidden">
+    <div
+      class="grid w-full max-w-7xl grid-cols-1 gap-24 p-20 md:grid-cols-2 lg:gap-48 lg:px-32"
+    >
+      <Crystal type="port" />
+      <Crystal type="saku" />
+    </div>
+  </div>
+
+  <div
+    class:list={[
+      "fixed right-0 bottom-12 left-0 px-8 font-serif",
+      "text-tiny text-center tracking-widest text-white/50",
+    ]}
+  >
+    日不落汉化组 本网站发布的内容与 07th Expansion 或 Entergram
+    没有直接关系，热爱本作品请购买正版
+  </div>
+
+  <div
+    id="home-mask"
+    class:list={[
+      "fixed inset-0 z-98 flex items-center justify-center",
+      "bg-black transition-opacity duration-1000",
+    ]}
+  >
+    <Image
+      src={logo}
+      alt="日不落汉化组"
+      class="h-auto w-48 animate-pulse lg:w-64"
+      loading="eager"
+    />
+  </div>
+</BaseLayout>
+
+<script>
+  import "@scripts/home";
+</script>

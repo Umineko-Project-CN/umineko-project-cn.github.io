@@ -1,0 +1,23 @@
+---
+import Icon from "@components/Icon.astro";
+
+import bgKv from "@assets/pages/port/kv.webp";
+---
+
+<section
+  id="download"
+  class:list={[
+    "flex justify-center py-10",
+    "bg-white bg-(image:--bg-kv) bg-cover bg-top bg-no-repeat",
+  ]}
+  style={`--bg-kv: url('${bgKv.src}')`}
+>
+  <a
+    href="/download/port"
+    role="button"
+    class="btn btn-accent btn-gradient btn-xl flex w-55 items-center gap-2"
+  >
+    <Icon class="tabler--download" />
+    下载
+  </a>
+</section>

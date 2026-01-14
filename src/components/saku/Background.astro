@@ -1,0 +1,95 @@
+---
+import bgHeadImg from "@assets/pages/saku/head.webp";
+import bgPetalsImg from "@assets/pages/saku/petals.webp";
+import patStarImg from "@assets/pages/saku/star-pattern.webp";
+import bgFrameImg from "@assets/pages/saku/frame.webp";
+import bgBlockImg from "@assets/pages/saku/block.webp";
+---
+
+<div id="backgroundHero" class="*:absolute *:z-0">
+  <div
+    class:list={[
+      "bg-(image:--bg-head) bg-size-[auto_100%]",
+      "bg-position-[calc(50%-16dvh)_1.5dvh] bg-no-repeat",
+      "square:bg-position-[calc(50%-2dvh)_3dvh] square:scale-275",
+      "scale-175 -rotate-[2.5deg]",
+      "h-dvh w-dvw",
+    ]}
+    style={`--bg-head: url('${bgHeadImg.src}')`}
+  >
+  </div>
+  <div
+    class:list={[
+      "bg-(image:--bg-petals-1) bg-size-[auto_45%] bg-center bg-no-repeat",
+      "square:bg-position-[center_-15dvh] square:bg-size-[auto_100%]",
+      "scale-200 rotate-135",
+      "square:scale-120 square:rotate-0",
+      "h-dvh w-dvw",
+    ]}
+    style={`--bg-petals-1: url('${bgPetalsImg.src}')`}
+  >
+  </div>
+</div>
+<div id="backgroundMain" class="hidden *:absolute *:z-0">
+  <div
+    class:list={[
+      "bg-white/15",
+      "left-1/2 -translate-x-1/2 rounded-full blur-[15dvh]",
+      "square:scale-175",
+      "h-dvh w-dvh",
+    ]}
+  >
+  </div>
+  <div
+    class:list={[
+      "bg-(image:--pat-star) bg-size-[auto_6.2%]",
+      "bg-center bg-repeat opacity-25",
+      "square:bg-size-[auto_9.25%]",
+      "h-dvh w-dvw",
+    ]}
+    style={`--pat-star: url('${patStarImg.src}')`}
+  >
+  </div>
+  <div
+    class:list={[
+      "bg-(image:--bg-frame) bg-contain bg-center bg-no-repeat",
+      "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-(--frame-rotation)",
+      "square:block hidden transition-transform duration-(--transition-duration)",
+      "h-[117dvh] w-[195dvh]",
+    ]}
+    style={`--bg-frame: url('${bgFrameImg.src}')`}
+  >
+  </div>
+  <div
+    class:list={[
+      "bg-(--filter-color) mix-blend-color transition-colors duration-(--transition-duration)",
+      "h-dvh w-dvw",
+    ]}
+  >
+  </div>
+  <div
+    class:list={[
+      "bg-(image:--bg-petals-2) bg-size-[43%_auto] bg-position-[163%_center] bg-repeat-x",
+      "square:bg-size-[auto_100%] square:bg-position-[center_100%]",
+      "top-[calc(var(--petals-top)*-110%)] left-1/2 opacity-50 transition-[top] duration-(--transition-duration)",
+      "square:top-[calc(40%+var(--petals-top)*20%)]",
+      "transform-[translate(-50%,-50%)_rotate(90deg)]",
+      "square:transform-[translate(-50%,-50%)_rotate(0deg)]",
+      "h-dvw w-[500dvh]",
+      "square:h-[120dvh] square:w-dvw",
+    ]}
+    style={`--bg-petals-2: url('${bgPetalsImg.src}')`}
+  >
+  </div>
+  <div
+    class:list={[
+      "top-[32.5%] left-1/2 -z-1 h-[50dvh] w-[90dvh] -translate-x-1/2 rotate-90",
+      "bg-(image:--bg-block) bg-size-[125%_auto] bg-position-[0_center] bg-no-repeat",
+      "square:w-full square:h-full square:left-0 square:right-0 square:top-0",
+      "square:rotate-0 square:translate-x-0",
+      "square:bg-size-[auto_69%] square:bg-center",
+    ]}
+    style={`--bg-block: url('${bgBlockImg.src}')`}
+  >
+  </div>
+</div>

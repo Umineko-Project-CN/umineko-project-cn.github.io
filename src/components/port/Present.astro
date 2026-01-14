@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+
+import char1Img from "@assets/pages/port/character-1.webp";
+import bannerImg from "@assets/common/port.webp";
+import presentedImg from "@assets/pages/port/presented.webp";
+import bgSeaImg from "@assets/pages/port/sea.webp";
+---
+
+<section
+  class:list={[
+    "flex justify-center px-10 py-16",
+    "bg-white bg-(image:--present-bg) bg-cover bg-top bg-no-repeat",
+  ]}
+  style={`--present-bg: url('${bgSeaImg.src}')`}
+>
+  <div class="max-w-300 md:w-4/5 lg:w-3/5">
+    <Image class="mx-auto w-2/3" src={char1Img} alt="" />
+    <Image class="mx-auto -mt-18 w-2/3" src={bannerImg} alt="海猫鸣泣之时" />
+    <Image class="w-full" src={presentedImg} alt="Presented by SNS Team" />
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+
+import logo2Img from "@assets/logo/logo-1.webp";
+---
+
+<footer
+  id="footer"
+  class="fixed bottom-0 hidden h-[15dvh] w-dvw items-center justify-center py-[4.7dvh]"
+>
+  <Image src={logo2Img} alt="日不落汉化组" class="h-full w-auto" />
+  <div class="bg-gold m-[0_5dvh] h-full w-[0.1rem]"></div>
+  <div
+    class="text-gold text-center text-[0.7rem] leading-6 font-bold tracking-widest"
+  >
+    本补丁仅供学习交流使用，请勿商用。使用本补丁前，请自觉购买本游戏。<br />
+    也请遵守官方的各项守则。若有违反，所造成的一切后果汉化组概不负责。
+  </div>
+</footer>
