@@ -9,12 +9,7 @@ import DownloadButton from "@components/DownloadButton.astro"
 
 **![](@assets/pages/download/saku/download_banner.webp)**
 
-## 下载前必读
-
-<Accordion>
-
-<AccordionItem title="如何安装">
-### 如何安装
+## 如何安装
 <span style={{color: '#EB687D'}}>
 游戏制作不易，使用本补丁前，请自觉购买本游戏。
 </span>
@@ -24,9 +19,9 @@ import DownloadButton from "@components/DownloadButton.astro"
 - **11.6GB + 2.0GB** 的储存空间（Mac/Android 计算方式）。
 
 ---
+<Accordion>
 
-#### PC - Yuzu 模拟器（推荐）
-
+<AccordionItem title="PC - Yuzu 模拟器（推荐）">
 **准备工作：**
 
 - 准备**游戏本体**、**密钥(keys)**。
@@ -40,11 +35,9 @@ import DownloadButton from "@components/DownloadButton.astro"
 
 - 下载基础版/还原版的 **patch_yuzu** 压缩包。  
 - 在模拟器中右键游戏，点击“**打开 MOD 数据位置**”，并将压缩包**放进该目录**中，**完整解压**即可。
+</AccordionItem>
 
----
-
-#### PC/Mac - Ryujinx 模拟器
-
+<AccordionItem title="PC/Mac - Ryujinx 模拟器">
 **准备工作：**
 
 - 准备**游戏本体**、**密钥(keys)**、**固件(firmware)**。  
@@ -64,11 +57,9 @@ import DownloadButton from "@components/DownloadButton.astro"
 **已知问题：**
 
 - 长时间运行游戏后，视频播放可能会出现问题。
+</AccordionItem>
 
----
-
-#### Android - yuzu 模拟器
-
+<AccordionItem title="Android - yuzu 模拟器">
 **准备工作：**
 
 - 准备**游戏本体**、**密钥(keys)**。  
@@ -87,11 +78,9 @@ import DownloadButton from "@components/DownloadButton.astro"
 - 在模拟器中点击“**设置 → 打开 yuzu 文件夹**”。  
 - 点击左上角的“**≡**”，**找到 MOD 文件夹**所在位置，**长按选中** MOD 文件夹，点击右上角的“**⋮**”，选择“**复制到…**”。  
 - 再次点击左上角的“**≡**”，**返回 yuzu 文件夹**，进入“**load/01006A300BA2C000/**”，将 MOD 文件夹**复制至此**即可。
+</AccordionItem>
 
----
-
-#### 破解 NS 主机 - Atmosphère
-
+<AccordionItem title="破解 NS 主机 - Atmosphère">
 **准备工作：**
 
 - 准备**游戏本体**。
@@ -104,53 +93,28 @@ import DownloadButton from "@components/DownloadButton.astro"
 - 下载基础版/还原版的 **patch_atmos** 并解压，将其**复制到** SD 卡的“**atmosphere**”目录即可。
 </AccordionItem>
 
-<AccordionItem title="其他贴士">
-### 其他贴士
-
-#### 如何操作
-
-![](@assets/pages/download/saku/download_read1.webp)
-在标题界面或系统菜单选择“Manual”，可以打开说明书，在“操作方式”页查看游戏键位。  
-- 若使用模拟器游玩，可以在模拟器的设置界面查看键位映射。
-
----
-
-#### 跳过正篇
-
-![](@assets/pages/download/saku/download_read2.webp)
-如果已经游玩过《海猫》的正篇剧本（EP1-8），可以在剧本选择界面按“+”键，解锁所有正篇剧本，直接开始阅读番外剧本。
-- 如果是初次游玩，不推荐直接解锁。
-</AccordionItem>
-
 </Accordion>
 
 ---
 
 ## 更新日志
-
 <Accordion>
 
-<AccordionItem title="更新日志" active>
-**2025.07.26 基础版/还原版 汉化版本1.1**
-
+<AccordionItem title="2025.07.26 基础版/还原版 汉化版本1.1">
 - 修正、补充Characters与UI的部分译文
 - 修正部分译文
+</AccordionItem>
 
-**2025.07.15 基础版/还原版 汉化版本1.0**
-
+<AccordionItem title="2025.07.15 基础版/还原版 汉化版本1.0">
 - 发布汉化
 </AccordionItem>
 
 </Accordion>
 
-
 ---
 
 ## 下载链接
 
-<Accordion>
-
-<AccordionItem title="下载链接" active>
 请在下载前阅读完所有上述内容
 
 <div class="not-prose w-80 max-w-fit">
@@ -170,6 +134,3 @@ import DownloadButton from "@components/DownloadButton.astro"
 		MEGA 网盘下载（需魔法访问）
 	</DownloadButton>
 </div>
-</AccordionItem>
-
-</Accordion>
