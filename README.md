@@ -9,7 +9,7 @@
 - **UI 组件库**: [FlyonUI](https://flyonui.com) - 基于 Tailwind CSS 的组件库。
 - **动画**: [Motion](https://motion.dev) (原 Framer Motion) - 提供高性能的浏览器端动画。
 - **粒子效果**: [tsParticles](https://particles.js.org) - 用于首页背景的定制粒子系统。
-- **轮播组件**: [Swiper](https://swiperjs.com) - 用于图片轮播展示。
+- **轮播组件**: [Swiper](https://swiperjs.com) - 用于实现轮播界面效果。
 - **包管理器**: [Bun](https://bun.sh) - 兼顾速度与兼容性。
 
 ## 项目结构
