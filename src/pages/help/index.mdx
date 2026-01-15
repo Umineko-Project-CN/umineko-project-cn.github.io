@@ -1,28 +1,68 @@
 ---
 title: 帮助
-description: 海猫鸣泣之时汉化版帮助中心 - 提供PS3移植重制版和NS版常见问题解答、安装教程、移动端安装方法和常用技巧。
+description: 海猫鸣泣之时汉化版帮助中心 - 提供PS3版移植版和NS版汉化补丁常见问题解答、安装教程、移动端安装方法和常用技巧。
 ---
 import Kbd from "@components/Kbd.astro"
 import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
+import Card from "@components/Card.astro"
+export const components = {
+  h2: (props) => <Card {...props} tag="h2" />,
+  h3: (props) => <Card {...props} tag="h3" />,
+  h4: (props) => <Card {...props} tag="h4" />,
+  blockquote: (props) => <Card {...props} tag="div" />,
+};
 
-## PS3 移植重制版
+## 《海猫》版本对比
+|  | 《海猫鸣泣之时 ～轮舞曲与夜想曲 移植版～》 | 《海猫鸣泣之时咲 ～猫箱与梦想的交响曲～》 |
+| --- | --- | --- |
+| 游戏性质 | 基于 PS3 版游戏移植重制 | 原生 Nintendo Switch 游戏 |
+| 支持平台 | 完美支持 Windows、macOS、Linux，支持 Android、iOS | NS 模拟器（Windows、macOS、Android 等）或已破解 NS 主机 |
+| 收录剧本 | 《海猫鸣泣之时》（正篇 Episode1-4）<br/>《海猫鸣泣之时散》（正篇 Episode5-8） | 《海猫鸣泣之时》（正篇 Episode1-4）<br/>《海猫鸣泣之时散》（正篇 Episode5-8）<br/>《海猫鸣泣之时翼》（番外）<br/>《海猫鸣泣之时羽》（番外）<br/>《海猫鸣泣之时咲》（番外）<br/>龙骑士07撰写的主机版独占游戏剧本（番外） |
+| 译文升级 | 包含 | 汉化补丁包含 |
+| 错误修正 | 包含 | 汉化补丁包含 |
+| 文本·语音改动还原 | 包含 | “还原版”汉化补丁包含 |
+| BGM 改动还原 | PS3 版游戏未改动 BGM | “还原版”汉化补丁包含 |
 
+- 译文升级：译文经过进一步的人工校对润色，更加准确与通顺。
+- 错误修正：修正了多处主机版错置的图片·语音·特效，力求呈现更加完美。
+- 改动还原：主机版《海猫》因分级与版权等原因，对部分文本·语音·BGM进行了改动。“还原”指贴近改动前的原版。
+
+---
+
+## PS3 版移植版
+
+### 查看注释
+我们此次对游戏中的注释做了整理与重编，并利用该版本游戏中的特色注释功能“魔导书”，对注释进行了集中化的展示。
+
+看到有绿字出现时，意为该词汇可在魔导书中查到注释，同时也会在文段末尾显示所在的条目名：
+
+![](@assets/pages/download/port/download_read8.webp)
+
+此时打开游戏菜单（PC 端为鼠标右键），点击左上角的 Tips 按钮，便可进入“情报录 + 魔导书”界面。
+
+![](@assets/pages/download/port/download_read9.webp)
+
+默认显示的是“情报录”。点击左下角的“切换为魔导书”，便能切换到魔导书页面，查阅到相关注释了。
+
+其中，有部分条目囊括了多条注释。当屏幕右侧出现箭头时，可以上下滚动页面查看。
+### 查看彩蛋
+游戏中存在部分由制作组制作的隐藏内容，我们在这里不多进行透露，仅在此提供两条线索：
+
+1. 若想要初探隐秘之境，首先需要提高“版权保护”意识；
+2. 若想要在与魔女的战斗中取胜，必须先得到黄金的真实。
 ### 常见错误解决方法
 <Accordion>
-
 <AccordionItem title="下载后解压失败">
 解压失败大多时候都是压缩软件过旧，或下载时出错造成的。  
 推荐所有玩家在 PC 上下载、解压游戏文件，并使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、 [WinRAR](https://www.rarlab.com/download.htm)
 等常用压缩软件进行解压。并检测压缩分包的 SHA1 校验码是否与网盘“1. 完整游戏”文件夹内“SHA1.txt”中记录的一致，不一致则需要重新下载该分包。（MD5 校验码可使用上述推荐软件 7-Zip 或 PeaZip 来检测）
 </AccordionItem>
-
 <AccordionItem title="使用启动器更新失败">
 Windows 7 用户更新失败（显示：`System.IO.FileNotFoundException`）是因为缺少系统组件，可尝试在微软官网下载安装
 [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer)
 解决。如果依然有更新问题，也可在“官网 &gt; 下载”页面的最下方手动分别下载更新档（包含脚本和资源包）。
 </AccordionItem>
-
 <AccordionItem title="游戏没有声音">
 如果窗口栏显示 [Sound: Off] 说明你误按下了静音键。再次按切换静音的快捷键 <Kbd>ALT</Kbd>+<Kbd>M</Kbd> 即可再次开启声音。更多快捷键也可在下方“常用诀窍”中查看。  
 如果游戏声音开启，却仍有音频问题，请尝试修改 ons.cfg：  
@@ -31,21 +71,13 @@ Windows 7 用户更新失败（显示：`System.IO.FileNotFoundException`）是�
 如果以上设置仍不能解决问题，则为引擎兼容性问题，暂无法解决。请调整软硬件设备环境再次尝试。  
 而如果发现游戏中部分人物缺少语音，可能是误在环境设置中关闭了部分人物的声音，请前往游戏内的环境界面中的第三页，确认是否所有人物的语音都设置为开启。若依旧存在问题，请检查游戏文件是否解压正确。
 </AccordionItem>
-
 <AccordionItem title="手柄没有反应">
 游戏只默认支持 Dualshock 3/4、Steam Controller、FuSa gamepad 等手柄。如使用的是 Xbox 手柄，可查阅 [常用诀窍](#自定义手柄键位) 中的解决方案。
 </AccordionItem>
-
 <AccordionItem title="存档出现问题 / 无法存档读档">
 可以尝试在游戏的环境设置中选择“初始化游戏”，或前往下方“常用诀窍”所列出的存档路径，手动删除存档文件夹“UminekoPS3ficationCn”解决（删除后存档会消失，如有需要可以先备份）。
 </AccordionItem>
-
 </Accordion>
-
-### 移动端安装方法
-
-见 [iOS/Android 安装帮助](/help/umineko-project-faq#iosandroid-安装帮助)。
-
 ### 常用诀窍
 
 > 更多内容参见 [Umineko Project FAQ](/help/umineko-project-faq)。
@@ -146,7 +178,15 @@ Linux 系统中的路径：
 ```
 
 如要停止 iCloud storage 的存档功能，可在 ons.cfg 加上以下一行指令： `disable-icloud`
-
 ## NS 版汉化补丁
 
-> 待补充……
+### 如何操作
+
+![](@assets/pages/download/saku/download_read1.webp)
+在标题界面或系统菜单选择“Manual”，可以打开说明书，在“操作方式”页查看游戏键位。  
+- 若使用模拟器游玩，可以在模拟器的设置界面查看键位映射。
+### 跳过正篇
+
+![](@assets/pages/download/saku/download_read2.webp)
+如果已经游玩过《海猫》的正篇剧本（EP1-8），可以在剧本选择界面按“+”键，解锁所有正篇剧本，直接开始阅读番外剧本。
+- 如果是初次游玩，不推荐直接解锁。

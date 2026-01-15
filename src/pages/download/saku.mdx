@@ -1,28 +1,54 @@
 ---
-title: NS 版汉化补丁下载
-description: 《海猫鸣泣之时咲》NS版汉化补丁下载页面 - 获取Nintendo Switch版《海猫鸣泣之时咲》中文汉化补丁及相关安装说明。
+title: 下载 NS 版汉化补丁
+description: 《海猫鸣泣之时咲 ～猫箱与梦想的交响曲～》汉化补丁下载页面 - 获取Nintendo Switch版《海猫鸣泣之时咲》中文汉化补丁及相关安装说明。
 ---
 import Icon from "@components/Icon.astro"
 import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
 import DownloadButton from "@components/DownloadButton.astro"
+import Card from "@components/Card.astro"
+export const components = {
+  h2: (props) => <Card {...props} tag="h2" />,
+  h3: (props) => <Card {...props} tag="h3" />,
+  h4: (props) => <Card {...props} tag="h4" />,
+  blockquote: (props) => <Card {...props} tag="div" />,
+};
 
-![](@assets/pages/download/saku/download_banner.webp)
+## 概要
+
+> 游戏制作不易，游玩该版本前，请自觉购买正版游戏。
+
+**支持平台：**
+
+- NS 模拟器（Windows、macOS、Android 等）或已破解 NS 主机。
+
+**收录剧本：**
+
+- 《海猫鸣泣之时》（正篇 Episode1-4）
+- 《海猫鸣泣之时散》（正篇 Episode5-8）
+- 《海猫鸣泣之时翼》（番外）
+- 《海猫鸣泣之时羽》（番外）
+- 《海猫鸣泣之时咲》（番外）
+- 龙骑士07撰写的主机版独占游戏剧本（番外）
+
+**其他特色：**
+
+- **译文升级**：译文经过进一步的人工校对润色，更加准确与通顺。
+- **错误修正**：修正了多处主机版错置的图片·语音·特效，力求呈现更加完美。
+- **双版本汉化**：汉化补丁分为双版本，可以按需选择：
+	- “基础版”：保留主机版改动过的文本·语音·BGM。
+	- “还原版”：多处内容还原为原版文本·语音·BGM（推荐）。
+
+---
 
 ## 如何安装
-<span style={{color: '#EB687D'}}>
-游戏制作不易，使用本补丁前，请自觉购买本游戏。
-</span>
 
 游戏本体+汉化补丁总共需要约：
 - **10.3GB + 1.8GB** 的储存空间（PC 计算方式）。
 - **11.6GB + 2.0GB** 的储存空间（Mac/Android 计算方式）。
-
----
 <Accordion>
-
 <AccordionItem title="PC - Yuzu 模拟器（推荐）">
-**准备工作：**
+**1. 准备工作：**
 
 - 准备**游戏本体**、**密钥(keys)**。
 	- 我们不提供游戏本体、密钥。请自行准备。
@@ -31,14 +57,15 @@ import DownloadButton from "@components/DownloadButton.astro"
 - 在模拟器的“**文件 → 打开 yuzu 文件夹**”中，将密钥文件**粘贴在“keys”子文件夹**中。  
 - 在模拟器的“**添加游戏目录**”中，添加游戏本体的目录。  
 
-**安装补丁：**
+---
+
+**2. 安装补丁：**
 
 - 下载基础版/还原版的 **patch_yuzu** 压缩包。  
 - 在模拟器中右键游戏，点击“**打开 MOD 数据位置**”，并将压缩包**放进该目录**中，**完整解压**即可。
 </AccordionItem>
-
 <AccordionItem title="PC/Mac - Ryujinx 模拟器">
-**准备工作：**
+**1. 准备工作：**
 
 - 准备**游戏本体**、**密钥(keys)**、**固件(firmware)**。  
 	- 我们不提供游戏本体、密钥。请自行准备。
@@ -48,19 +75,22 @@ import DownloadButton from "@components/DownloadButton.astro"
 - 在模拟器的“**文件 → 打开 Ryujinx 系统目录**”中，将密钥文件**粘贴在该文件夹**中。    
 - 在模拟器的“**工具 → 安装系统固件**”中，选择固件文件进行安装。   
 - 在模拟器的“**设置 → 用户界面 → 游戏目录**”中，添加游戏本体的目录。  
-  
-**安装补丁：**  
+
+---
+
+**2. 安装补丁：**  
 
 - 下载基础版/还原版的 **patch_atmos** 压缩包。  
 - 在模拟器中右键游戏图标，点击“**打开 MOD 目录**”，并将压缩包**放进该目录**中，**完整解压**即可。 
-  
-**已知问题：**
+
+---
+
+**3. 已知问题：**
 
 - 长时间运行游戏后，视频播放可能会出现问题。
 </AccordionItem>
-
-<AccordionItem title="Android - yuzu 模拟器">
-**准备工作：**
+<AccordionItem title="Android - Yuzu 模拟器">
+**1. 准备工作：**
 
 - 准备**游戏本体**、**密钥(keys)**。  
 	- 我们不提供游戏本体、密钥。请自行准备。
@@ -69,54 +99,56 @@ import DownloadButton from "@components/DownloadButton.astro"
 	- 推荐安装最新版模拟器，以保证游戏运行正常。
 - 初次打开模拟器时，根据提示指定**密钥文件**与**游戏本体所在目录**，并**运行一次**游戏再关闭。  
 	- 推荐将游戏本体放在内部储存，而非 SD 卡中，以提升性能。
-  
-**安装补丁：**
+
+---
+
+**2. 安装补丁：**
 
 - 下载基础版/还原版的 **patch_yuzu**，把解压出的 **MOD 文件夹放入设备**的任意位置。  
-	- 即“UminekoCatboxChinese”文件夹。  
+	- 即“`UminekoCatboxChinese`”文件夹。  
 	- 推荐在PC上解压后放入 Android 设备，以防路径出错。  
 - 在模拟器中点击“**设置 → 打开 yuzu 文件夹**”。  
 - 点击左上角的“**≡**”，**找到 MOD 文件夹**所在位置，**长按选中** MOD 文件夹，点击右上角的“**⋮**”，选择“**复制到…**”。  
-- 再次点击左上角的“**≡**”，**返回 yuzu 文件夹**，进入“**load/01006A300BA2C000/**”，将 MOD 文件夹**复制至此**即可。
+- 再次点击左上角的“**≡**”，**返回 yuzu 文件夹**，进入“`load/01006A300BA2C000/`”，将 MOD 文件夹**复制至此**即可。
 </AccordionItem>
-
 <AccordionItem title="破解 NS 主机 - Atmosphère">
-**准备工作：**
+**1. 准备工作：**
 
 - 准备**游戏本体**。
 	- 我们不提供游戏本体。请自行准备。
 - 破解 NS 主机，安装 Atmosphère 环境。
 	- 破解的方法请自行搜寻，风险也请自负。
 
-**安装补丁：**
+---
 
-- 下载基础版/还原版的 **patch_atmos** 并解压，将其**复制到** SD 卡的“**atmosphere**”目录即可。
+**2. 安装补丁：**
+
+- 下载基础版/还原版的 **patch_atmos** 并解压，将其**复制到** SD 卡的“`atmosphere`”目录即可。
 </AccordionItem>
-
 </Accordion>
+
+更多帮助请参照 [帮助页面](/help#ns-版汉化补丁)。
 
 ---
 
 ## 更新日志
 <Accordion>
-
 <AccordionItem title="2025.07.26 基础版/还原版 汉化版本1.1">
 - 修正、补充Characters与UI的部分译文
 - 修正部分译文
 </AccordionItem>
-
 <AccordionItem title="2025.07.15 基础版/还原版 汉化版本1.0">
 - 发布汉化
 </AccordionItem>
-
 </Accordion>
 
 ---
 
 ## 下载链接
 
-请在下载前阅读完所有上述内容
-
+请在下载前阅读完所有上述内容。
+<Accordion>
+<AccordionItem title="补丁下载">
 <div class="not-prose w-80 max-w-fit">
 	<DownloadButton class="btn-md btn-block mb-4" link="https://pan.baidu.com/s/1dqI2tgrdo_XY4u7o993q9A">
 		百度网盘下载（提取码：1129）
@@ -134,3 +166,5 @@ import DownloadButton from "@components/DownloadButton.astro"
 		MEGA 网盘下载（需魔法访问）
 	</DownloadButton>
 </div>
+</AccordionItem>
+</Accordion>

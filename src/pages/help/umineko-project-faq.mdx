@@ -5,6 +5,13 @@ description: Umineko Project官方FAQ中文翻译 - 包含技术问题、配置�
 import Kbd from "@components/Kbd.astro"
 import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
+import Card from "@components/Card.astro"
+export const components = {
+  h2: (props) => <Card {...props} tag="h2" />,
+  h3: (props) => <Card {...props} tag="h3" />,
+  h4: (props) => <Card {...props} tag="h4" />,
+  blockquote: (props) => <Card {...props} tag="div" />,
+};
 
 > 此页面的帮助内容来自 Umineko Project 官方网站，经过整理与翻译后发布于此处。
 

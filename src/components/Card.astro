@@ -1,0 +1,43 @@
+---
+interface Props {
+  class?: string;
+  tag?: 'h2' | 'h3' | 'h4' | 'div';
+}
+
+import Icon from "@components/Icon.astro";
+const { class: className, tag: Element = 'div' } = Astro.props;
+
+const themeConfig = {
+  h2: {
+    container: "bg-primary text-base-content",
+    icon: "tabler--message-filled",
+    text: "text-2xl py-4",
+  },
+  h3: {
+    container: "bg-secondary text-base-content",
+    icon: "tabler--point-filled",
+    text: "text-lg py-3",
+  },
+  h4: {
+    container: "bg-base-100 text-base-content",
+    icon: "tabler--point-filled",
+    text: "text-lg py-2",
+  },
+  div: {
+    container: "bg-transparent border border-accent",
+    icon: "tabler--info-circle",
+    text: "text-accent text-base py-0",
+  }
+};
+
+const config = themeConfig[Element] || themeConfig.div;
+---
+
+<Element class:list={["card min-h-0 overflow-hidden", config.container, className]}>
+  <div class:list={["card-body flex flex-row items-center flex-nowrap", config.text]}>
+    {config.icon && <Icon name={config.icon} class:list={[config.icon, "shrink-0"]} />}
+    <div class="flex-1">
+      <slot />
+    </div>
+  </div>
+</Element>
