@@ -57,7 +57,7 @@ const title = `${Astro.props.title} - 日不落汉化组`;
     <div
       id="loading-mask"
       class:list={[
-        "fixed inset-0 z-99 flex items-end justify-end",
+        "pointer-events-none fixed inset-0 z-99 flex items-end justify-end",
         "bg-black/40 opacity-0 transition-opacity duration-200",
       ]}
       style="view-transition-name: loading-indicator"
