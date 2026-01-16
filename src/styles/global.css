@@ -65,3 +65,44 @@ html {
 @view-transition {
   navigation: auto;
 }
+
+.accordion {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accordion-header {
+  display: flex;
+  list-style: none;
+  cursor: pointer;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 0.75rem 0;
+  text-align: start;
+}
+
+.accordion-header::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-icon :global(svg) {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  transition: transform 300ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accordion-item[open] .accordion-icon {
+  transform: rotate(90deg);
+}
+
+
+.accordion-content {
+  padding: 0 1.25rem 1rem 1.25rem;
+}
