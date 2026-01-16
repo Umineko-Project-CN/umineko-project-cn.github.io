@@ -2,10 +2,12 @@
 interface Props {
   class?: string;
   tag?: 'h2' | 'h3' | 'h4' | 'div';
+  id?: string;
 }
 
-import Icon from "@components/Icon.astro";
-const { class: className, tag: Element = 'div' } = Astro.props;
+import IconComponent from "@components/Icon.astro";
+const Icon = IconComponent as any;
+const { class: className, tag: Element = 'div', id } = Astro.props;
 
 const themeConfig = {
   h2: {
@@ -26,7 +28,7 @@ const themeConfig = {
   div: {
     container: "bg-transparent border border-accent",
     icon: "tabler--info-circle",
-    text: "text-accent text-base py-0",
+    text: "text-accent text-base py-2 [&_p]:my-0",
   }
 };
 
@@ -37,7 +39,7 @@ const config = themeConfig[Element] || themeConfig.div;
   <div class:list={["card-body flex flex-row items-center flex-nowrap", config.text]}>
     {config.icon && <Icon name={config.icon} class:list={[config.icon, "shrink-0"]} />}
     <div class="flex-1">
-      <slot />
+      {id ? <span id={id}><slot /></span> : <slot />}
     </div>
   </div>
 </Element>
