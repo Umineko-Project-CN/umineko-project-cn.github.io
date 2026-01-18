@@ -4,8 +4,9 @@ description: 《海猫鸣泣之时 ～轮舞曲与夜想曲 移植版～》下�
 ---
 import Icon from '@components/Icon.astro';
 import DownloadButton from "@components/DownloadButton.astro"
+import Accordion from "@components/Accordion.astro"
+import AccordionItem from "@components/AccordionItem.astro"
 import Card from "@components/Card.astro"
-import RemoteText from "@components/RemoteText.astro"
 export const components = {
   h2: (props) => <Card {...props} tag="h2" />,
   h3: (props) => <Card {...props} tag="h3" />,
@@ -45,7 +46,7 @@ export const components = {
 
 > 更多帮助请参照 [帮助页面](/help#ps3-版移植版)。Android/iOS 平台安装步骤较繁琐，更推荐游玩 [NS 版](/saku)。
 
-#### 配置要求
+### 配置要求
 
 - **最低配置要求：**
     - **处理器：**3.0 GHz 单核处理器（需支持 SSE3 指令集）
@@ -57,222 +58,145 @@ export const components = {
 
 - 推荐使用更新的操作系统版本。
 
-#### 安装步骤
+### 安装步骤
 
-<div class="accordion">
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>Windows 平台</span>
-    </summary>
+<Accordion>
+<AccordionItem title="Windows 平台">
+1. **下载：**
 
-<div class="accordion-content">
+    ![](@assets/pages/download/port/download_read2.webp)
+    - 从“下载链接”的“**游戏下载**”中，下载“**1. 完整游戏**”文件夹中的所有压缩文件。
 
-**1. 下载：**
+2. **解压：**
 
-![](@assets/pages/download/port/download_read2.webp)
-- 从“下载链接”的“**游戏下载**”中，下载“**1. 完整游戏**”文件夹中的所有压缩文件。
+    - 将全部压缩文件下载至同一目录下，使用**解压密码**，直接解压其中**第一个分包**即可得到完整游戏。
+        - 切勿修改文件后缀！
+        - 推荐使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、[WinRAR](https://www.rarlab.com/download.htm) 等常用压缩软件。
+    - 若解压出错，通常是软件版本过旧或下载损坏。请使用推荐压缩软件，并核对分包的 **SHA1 校验码**（在“1. 完整游戏”文件夹内的 `SHA1.txt` 中查看）。若不一致需重新下载该分包。
 
-****
+3. **更新与启动：**
 
-**2. 解压：**
+    ![](@assets/pages/download/port/download_read3.webp)
+    - 使用文件夹内的 **“海猫鸣泣之时.exe”（启动器）** 启动，以保证版本最新。
+        - 若启动器被杀毒软件误删，可前往网盘“3. 启动器”文件夹重新下载。
+        - 也可从“下载链接”的“**更新下载**”中，分别下载“脚本”与“资源包”，自行解压到游戏目录。
+    - 启动器运行后会自动联网检查更新：
+        - 指示灯为 **红色或橙色：** 请等待“获取更新”按钮出现并点击更新。
+        - 指示灯为 **绿色：** 版本已是最新，可直接点击“开始游戏”。
+    - 若遇重大版本更新，可能会强制跳转至网盘手动下载更新。
+    - Windows 7 用户若更新失败，请下载安装 [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer)。
+</AccordionItem>
 
-- 将全部压缩文件下载至同一目录下，使用**解压密码**，直接解压其中**第一个分包**即可得到完整游戏。
-	- 切勿修改文件后缀！
-	- 推荐使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、[WinRAR](https://www.rarlab.com/download.htm) 等常用压缩软件。
-- 若解压出错，通常是软件版本过旧或下载损坏。请使用推荐压缩软件，并核对分包的 **SHA1 校验码**（在“1. 完整游戏”文件夹内的 `SHA1.txt` 中查看）。若不一致需重新下载该分包。
+<AccordionItem title="macOS/Linux 平台">
+1. **下载：**
 
-****
+    ![](@assets/pages/download/port/download_read2.webp)
+    - 从“下载链接”的“**游戏下载**”中，下载“**1. 完整游戏**”文件夹中的所有压缩文件。
+    - 从“下载链接”的“**游戏下载**”中，下载“**2. 其他平台主程序**”文件夹中你使用平台的主程序，下载后解压放进游戏文件夹内。
 
-**3. 更新与启动：**
+2. **解压：**
 
-![](@assets/pages/download/port/download_read3.webp)
-- 使用文件夹内的 **“海猫鸣泣之时.exe”（启动器）** 启动，以保证版本最新。
-	- 若启动器被杀毒软件误删，可前往网盘“3. 启动器”文件夹重新下载。
-	- 也可从“下载链接”的“**更新下载**”中，分别下载“脚本”与“资源包”，自行解压到游戏目录。
-- 启动器运行后会自动联网检查更新：
-    - 指示灯为 **红色或橙色：** 请等待“获取更新”按钮出现并点击更新。
-    - 指示灯为 **绿色：** 版本已是最新，可直接点击“开始游戏”。
-- 若遇重大版本更新，可能会强制跳转至网盘手动下载更新。
-- Windows 7 用户若更新失败，请下载安装 [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-offline-installer)。
+    - 将全部压缩文件下载至同一目录下，使用**解压密码**，直接解压其中**第一个分包**即可得到完整游戏。
+        - 切勿修改文件后缀！
+        - 推荐使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、[WinRAR](https://www.rarlab.com/download.htm) 等常用压缩软件。
+    - 若解压出错，通常是软件版本过旧或下载损坏。请使用推荐压缩软件，并核对分包的 **SHA1 校验码**（在“1. 完整游戏”文件夹内的 `SHA1.txt` 中查看）。若不一致需重新下载该分包。
 
-</div>
-</details>
+3. **更新与启动：**
 
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>macOS/Linux 平台</span>
-    </summary>
+    * 从“下载链接”的“**更新下载**”中，分别下载“脚本”与“资源包”，自行解压到游戏目录。并定期检查是否有更新。
+        * 更推荐在 Windows 下使用文件夹内的 **“海猫鸣泣之时.exe”（启动器）** 启动，以保证版本最新。（参照 [Windows 平台说明](/download/port#安装步骤)）
+    - 运行当前平台主程序即可启动游戏。
+    - 若遇重大版本更新，可能会需要从网盘手动下载更新。
+</AccordionItem>
 
-<div class="accordion-content">
+<AccordionItem title="Android 平台">
+1. **下载（推荐先在 PC 上下载）：**
 
-**1. 下载：**
+    ![](@assets/pages/download/port/download_read2.webp)
+    - 从“下载链接”的“**游戏下载**”中，下载“**1. 完整游戏**”文件夹中的所有压缩文件。
+    - 从“下载链接”的“**游戏下载**”中，下载“**2. 其他平台主程序**”文件夹中你使用平台的主程序。
 
-![](@assets/pages/download/port/download_read2.webp)
-- 从“下载链接”的“**游戏下载**”中，下载“**1. 完整游戏**”文件夹中的所有压缩文件。
-- 从“下载链接”的“**游戏下载**”中，下载“**2. 其他平台主程序**”文件夹中你使用平台的主程序，下载后解压放进游戏文件夹内。
+2. **解压（推荐先在 PC 上解压）：**
 
-****
+    - 将全部压缩文件下载至同一目录下，使用**解压密码**，直接解压其中**第一个分包**即可得到完整游戏。
+        - 切勿修改文件后缀！
+        - 推荐使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、[WinRAR](https://www.rarlab.com/download.htm) 等常用压缩软件。
+    - 若解压出错，通常是软件版本过旧或下载损坏。请使用推荐压缩软件，并核对分包的 **SHA1 校验码**（在“1. 完整游戏”文件夹内的 `SHA1.txt` 中查看）。若不一致需重新下载该分包。
 
-**2. 解压：**
+3. **更新：**
 
-- 将全部压缩文件下载至同一目录下，使用**解压密码**，直接解压其中**第一个分包**即可得到完整游戏。
-	- 切勿修改文件后缀！
-	- 推荐使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、[WinRAR](https://www.rarlab.com/download.htm) 等常用压缩软件。
-- 若解压出错，通常是软件版本过旧或下载损坏。请使用推荐压缩软件，并核对分包的 **SHA1 校验码**（在“1. 完整游戏”文件夹内的 `SHA1.txt` 中查看）。若不一致需重新下载该分包。
+    * 从“下载链接”的“**更新下载**”中，分别下载“脚本”与“资源包”，自行解压到游戏目录。并定期检查是否有更新。
+        * 更推荐在 Windows 下使用文件夹内的 **“海猫鸣泣之时.exe”（启动器）** 启动，以保证版本最新。（参照 [Windows 平台说明](/download/port#安装步骤)）
+    - 运行当前平台主程序即可启动游戏。
+    - 若遇重大版本更新，可能会需要从网盘手动下载更新。
 
-****
+4. **安装至移动设备：**
 
-**3. 更新与启动：**
+    - 在移动设备上**安装游戏主程序（.apk）**。
+    - 在移动设备上，将完整游戏文件**传输到根目录下的 `ONScripter-RU` 文件夹**内。
+    - 运行游戏主程序即可启动游戏。
+        - 若无法确定路径导致游戏启动失败，请在移动设备 SD 卡的 `ONScripter-RU` 文件夹中创建 `default.cfg` 文件，并添加一行 `root=/完整/游戏/路径`。
+</AccordionItem>
 
-* 从“下载链接”的“**更新下载**”中，分别下载“脚本”与“资源包”，自行解压到游戏目录。并定期检查是否有更新。
-	* 更推荐在 Windows 下使用文件夹内的 **“海猫鸣泣之时.exe”（启动器）** 启动，以保证版本最新。（参照 [Windows 平台说明](/download/port#安装步骤)）
-- 运行当前平台主程序即可启动游戏。
-- 若遇重大版本更新，可能会需要从网盘手动下载更新。
+<AccordionItem title="iOS 平台">
+1. **下载（推荐先在 PC 上下载）：**
 
-</div>
-</details>
+    ![](@assets/pages/download/port/download_read2.webp)
+    - 从“下载链接”的“**游戏下载**”中，下载“**1. 完整游戏**”文件夹中的所有压缩文件。
+    - 从“下载链接”的“**游戏下载**”中，下载“**2. 其他平台主程序**”文件夹中你使用平台的主程序。
 
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>Android 平台</span>
-    </summary>
+2. **解压（推荐先在 PC 上解压）：**
 
-<div class="accordion-content">
+    - 将全部压缩文件下载至同一目录下，使用**解压密码**，直接解压其中**第一个分包**即可得到完整游戏。
+        - 切勿修改文件后缀！
+        - 推荐使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、[WinRAR](https://www.rarlab.com/download.htm) 等常用压缩软件。
+    - 若解压出错，通常是软件版本过旧或下载损坏。请使用推荐压缩软件，并核对分包的 **SHA1 校验码**（在“1. 完整游戏”文件夹内的 `SHA1.txt` 中查看）。若不一致需重新下载该分包。
 
-**1. 下载（推荐先在 PC 上下载）：**
+3. **更新：**
 
-![](@assets/pages/download/port/download_read2.webp)
-- 从“下载链接”的“**游戏下载**”中，下载“**1. 完整游戏**”文件夹中的所有压缩文件。
-- 从“下载链接”的“**游戏下载**”中，下载“**2. 其他平台主程序**”文件夹中你使用平台的主程序。
+    * 从“下载链接”的“**更新下载**”中，分别下载“脚本”与“资源包”，自行解压到游戏目录。并定期检查是否有更新。
+        * 更推荐在 Windows 下使用文件夹内的 **“海猫鸣泣之时.exe”（启动器）** 启动，以保证版本最新。（参照 [Windows 平台说明](/download/port#安装步骤)）
+    - 运行当前平台主程序即可启动游戏。
+    - 若遇重大版本更新，可能会需要从网盘手动下载更新。
 
-****
+4. **安装至移动设备：**
 
-**2. 解压（推荐先在 PC 上解压）：**
+    - 使用 Apple Developer Program 证书或 Sideloadly，在移动设备上侧载**安装游戏主程序（.ipa）**。
+        - 方法请自行搜寻。
+    - 在移动设备上，将完整游戏文件**传输到 `ONScripter-RU` 的共享文件夹**内。
+    - 运行游戏主程序即可启动游戏。
+</AccordionItem>
+</Accordion>
 
-- 将全部压缩文件下载至同一目录下，使用**解压密码**，直接解压其中**第一个分包**即可得到完整游戏。
-	- 切勿修改文件后缀！
-	- 推荐使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、[WinRAR](https://www.rarlab.com/download.htm) 等常用压缩软件。
-- 若解压出错，通常是软件版本过旧或下载损坏。请使用推荐压缩软件，并核对分包的 **SHA1 校验码**（在“1. 完整游戏”文件夹内的 `SHA1.txt` 中查看）。若不一致需重新下载该分包。
+### 解压密码
 
-****
+- 拥有正版 PS3 版与 PC 版时，将下述四个部分按顺序拼接，即可得到 27 位解压密码：
+    1. 找到 PS3 版游戏手册封底上的粗体数字，不带连字符地将其抄下；
+    2. 查看 PS3 版游戏手册第 4 页底部“KB”前面的数字，把这串数字写在上一步得到的字符串后方；
+    3. 找到 PC 版“うみねこのなく頃に.exe”文件，并将其“大小”一栏的数字（并非占用空间）添加到字符串后方；
+    4. 找到 PC 版“nscript.dat”文件，并将其“大小”一栏的数字（并非占用空间）添加到字符串后方。
 
-**3. 更新：**
-
-* 从“下载链接”的“**更新下载**”中，分别下载“脚本”与“资源包”，自行解压到游戏目录。并定期检查是否有更新。
-	* 更推荐在 Windows 下使用文件夹内的 **“海猫鸣泣之时.exe”（启动器）** 启动，以保证版本最新。（参照 [Windows 平台说明](/download/port#安装步骤)）
-- 运行当前平台主程序即可启动游戏。
-- 若遇重大版本更新，可能会需要从网盘手动下载更新。
-
-****
-
-**4. 安装至移动设备：**
-
-- 在移动设备上**安装游戏主程序（.apk）**。
-- 在移动设备上，将完整游戏文件**传输到根目录下的 `ONScripter-RU` 文件夹**内。
-- 运行游戏主程序即可启动游戏。
-	- 若无法确定路径导致游戏启动失败，请在移动设备 SD 卡的 `ONScripter-RU` 文件夹中创建 `default.cfg` 文件，并添加一行 `root=/完整/游戏/路径`。
-
-</div>
-</details>
-
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>iOS 平台</span>
-    </summary>
-
-<div class="accordion-content">
-
-**1. 下载（推荐先在 PC 上下载）：**
-
-![](@assets/pages/download/port/download_read2.webp)
-- 从“下载链接”的“**游戏下载**”中，下载“**1. 完整游戏**”文件夹中的所有压缩文件。
-- 从“下载链接”的“**游戏下载**”中，下载“**2. 其他平台主程序**”文件夹中你使用平台的主程序。
-
-****
-
-**2. 解压（推荐先在 PC 上解压）：**
-
-- 将全部压缩文件下载至同一目录下，使用**解压密码**，直接解压其中**第一个分包**即可得到完整游戏。
-	- 切勿修改文件后缀！
-	- 推荐使用 [7-Zip](https://www.7-zip.org/download.html)、[PeaZip](https://peazip.github.io/)、[WinRAR](https://www.rarlab.com/download.htm) 等常用压缩软件。
-- 若解压出错，通常是软件版本过旧或下载损坏。请使用推荐压缩软件，并核对分包的 **SHA1 校验码**（在“1. 完整游戏”文件夹内的 `SHA1.txt` 中查看）。若不一致需重新下载该分包。
-
-****
-
-**3. 更新：**
-
-* 从“下载链接”的“**更新下载**”中，分别下载“脚本”与“资源包”，自行解压到游戏目录。并定期检查是否有更新。
-	* 更推荐在 Windows 下使用文件夹内的 **“海猫鸣泣之时.exe”（启动器）** 启动，以保证版本最新。（参照 [Windows 平台说明](/download/port#安装步骤)）
-- 运行当前平台主程序即可启动游戏。
-- 若遇重大版本更新，可能会需要从网盘手动下载更新。
-
-****
-
-**4. 安装至移动设备：**
-
-- 使用 Apple Developer Program 证书或 Sideloadly，在移动设备上侧载**安装游戏主程序（.ipa）**。
-	- 方法请自行搜寻。
-- 在移动设备上，将完整游戏文件**传输到 `ONScripter-RU` 的共享文件夹**内。
-- 运行游戏主程序即可启动游戏。
-
-</div>
-</details>
-</div>
-
-#### 解压密码
-<div class="accordion">
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>获得解压密码的方式</span>
-    </summary>
-
-<div class="accordion-content">
-
-1. 找到 PS3 版游戏手册封底上的粗体数字，不带连字符地将其抄下；
-2. 查看 PS3 版游戏手册第 4 页底部“KB”前面的数字，把这串数字写在上一步得到的字符串后方；
-3. 找到 PC 版“うみねこのなく頃に.exe”文件，并将其“大小”一栏的数字（并非占用空间）添加到字符串后方；
-4. 找到 PC 版“nscript.dat”文件，并将其“大小”一栏的数字（并非占用空间）添加到字符串后方。
-
-- 将上述四个部分按顺序拼接，即可得到 27 位解压密码。
 - 为方便国内玩家，**下载链接内已随附解压密码**。但根据制作组 Umineko Project 声明，拥有正版仍是游玩必要条件。
 
-</div>
-</details>
-</div>
-
 ## 更新日志
-<div class="accordion">
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>查看更新日志</span>
-    </summary>
 
-<div class="accordion-content">
+- 脚本更新 2025.07.15
+    - 文本大幅更新，校对文本、调整魔导书条目。
+    - 更新制作人员名单。
+    - 调整了部分UI的字体与表现形式。
+    - 部分角色名称可能与图片不一致，将在下次资源包更新时修正。
 
-<RemoteText src="https://down.snsteam.club/changelog.txt" />
+- 资源包更新 2022.11.23
+    - 修正部分资源；升级制作人员名单的显示。
 
-</div>
-</details>
-</div>
+- 启动器、语言包更新 2022.09.28
+    - 添加可选繁体中文语言。
 
 ## 下载链接
 - 请在下载前阅读完所有上述内容。
 
-<div class="accordion">
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>游戏下载</span>
-    </summary>
-
-<div class="accordion-content">
-
+<Accordion>
+<AccordionItem title="游戏下载">
 <div class="not-prose w-90 max-w-fit">
     <DownloadButton class="btn-md btn-block mb-4" link="https://pan.baidu.com/s/1Gu_-wr70gkidnYBMXKt_Bg">
         百度网盘下载（提取码：1129）
@@ -282,18 +206,9 @@ export const components = {
         MEGA 网盘下载（需魔法访问）
     </DownloadButton>
 </div>
+</AccordionItem>
 
-</div>
-</details>
-
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>语言包下载（“游戏下载”中已包含）</span>
-    </summary>
-
-<div class="accordion-content">
-
+<AccordionItem title="语言包下载（“游戏下载”中已包含）">
 <div class="not-prose w-90 max-w-fit">
     <DownloadButton class="btn-sm btn-block mb-4" link="https://pan.baidu.com/s/1UNQQDbtRJC3eaUlDOoVS6A">
         繁体中文包 百度网盘下载（提取码：0715）
@@ -303,18 +218,9 @@ export const components = {
         繁体中文包 MEGA 网盘下载（需魔法访问）
     </DownloadButton>
 </div>
+</AccordionItem>
 
-</div>
-</details>
-
-<details class="accordion-item">
-    <summary class="accordion-header">
-        <icon name="tabler--chevron-right" class="accordion-icon" />
-        <span>更新下载（用于非启动器玩家更新）</span>
-    </summary>
-
-<div class="accordion-content">
-
+<AccordionItem title="更新下载（用于非启动器玩家更新）">
 <div class="not-prose w-90 max-w-fit">
     <DownloadButton class="btn-sm btn-block mb-4" link="https://down.snsteam.club/script.zip">
         脚本
@@ -324,7 +230,5 @@ export const components = {
         资源包
     </DownloadButton>
 </div>
-
-</div>
-</details>
-</div>
+</AccordionItem>
+</Accordion>
