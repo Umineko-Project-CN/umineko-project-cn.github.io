@@ -16,11 +16,11 @@ const color =
     "pan.quark.cn": "#1256ff",
     "cloud.189.cn": "#fb9312",
     "mega.nz": "#dd1405",
-  }[url.hostname] || "black";
+  }[url.hostname] || "var(--color-accent)";
 ---
 
 <a
-  class:list={["btn min-h-fit", className]}
+  class:list={["btn min-h-fit rounded-box", className]}
   style={`--btn-color:${color};--btn-fg: white`}
   href={link}
 >
