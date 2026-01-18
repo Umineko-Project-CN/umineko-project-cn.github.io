@@ -8,10 +8,10 @@ import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
 import Card from "@components/Card.astro"
 export const components = {
-  h2: (props) => <Card {...props} tag="h2" />,
-  h3: (props) => <Card {...props} tag="h3" />,
-  h4: (props) => <Card {...props} tag="h4" />,
-  blockquote: (props) => <Card {...props} tag="div" />,
+    h2: (props) => <Card {...props} tag="h2" />,
+    h3: (props) => <Card {...props} tag="h3" />,
+    h4: (props) => <Card {...props} tag="h4" />,
+    blockquote: (props) => <Card {...props} tag="blockquote" />,
 };
 
 ## 《海猫》版本对比
@@ -37,53 +37,30 @@ export const components = {
 
 #### 如何操作
 
+<div class="[&_th]:w-1/2">
 - **键盘与鼠标：**
 
-    <table>
-    <colgroup>
-        <col width="50%" />
-        <col width="50%" />
-    </colgroup>
-    <thead>
-        <tr>
-        <th>快捷键</th>
-        <th>功能</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td><Kbd>A</Kbd></td><td>自动播放</td></tr>
-        <tr><td><Kbd>F</Kbd></td><td>全屏/窗口模式切换</td></tr>
-        <tr><td><Kbd>Ctrl</Kbd>+<Kbd>S</Kbd> / <Kbd>Alt</Kbd>+<Kbd>S</Kbd></td><td>文本快进</td></tr>
-        <tr><td><Kbd>Alt</Kbd>+<Kbd>M</Kbd></td><td>静音/取消静音</td></tr>
-        <tr><td>鼠标右键</td><td>打开/关闭菜单</td></tr>
-        <tr><td>鼠标滚轮</td><td>打开“剧情回顾”界面</td></tr>
-    </tbody>
-    </table>
+    | 快捷键 | 功能 |
+    | --- | --- |
+    | <Kbd>A</Kbd> | 自动播放 |
+    | <Kbd>F</Kbd> | 全屏/窗口模式切换 |
+    | <Kbd>Ctrl</Kbd>+<Kbd>S</Kbd> / <Kbd>Alt</Kbd>+<Kbd>S</Kbd> | 文本快进 |
+    | <Kbd>Alt</Kbd>+<Kbd>M</Kbd> | 静音/取消静音 |
+    | 鼠标右键 | 打开/关闭菜单 |
+    | 鼠标滚轮 | 打开“剧情回顾”界面 |
 
 - **触摸控制：**
 
-    <table>
-    <colgroup>
-        <col width="50%" />
-        <col width="50%" />
-    </colgroup>
-    <thead>
-        <tr>
-        <th>操作</th>
-        <th>功能</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td>单指点击</td><td>左键单击</td></tr>
-        <tr><td>双指点击</td><td>右键单击</td></tr>
-        <tr><td>三指点击</td><td>中键单击</td></tr>
-        <tr><td>双指滑动</td><td>滚动</td></tr>
-        <tr><td>三指向右滑动</td><td>跳过文本</td></tr>
-        <tr><td>三指向左滑动</td><td>自动模式</td></tr>
-        <tr><td>三指向上滑动</td><td>静音/取消静音</td></tr>
-        <tr><td>三指向下滑动</td><td>标签页（跳至下一章节）</td></tr>
-    </tbody>
-    </table>
+    | 操作 | 功能 |
+    | --- | --- |
+    | 单指点击 | 左键单击 |
+    | 双指点击 | 右键单击 |
+    | 三指点击 | 中键单击 |
+    | 双指滑动 | 滚动 |
+    | 三指向右滑动 | 跳过文本 |
+    | 三指向左滑动 | 自动模式 |
+    | 三指向上滑动 | 静音/取消静音 |
+    | 三指向下滑动 | 标签页（跳至下一章节） |
 
 - **游戏手柄：**
 
@@ -108,6 +85,7 @@ export const components = {
         3. 在游戏内按下手柄按键，控制台会显示对应的按键数字。
 
         4. 按照映射顺序，将记录下的数字填入 `pad-map=` 的等号后（使用 `-1` 代表不映射该按键）。
+</div>
 
 #### 查看注释
 
@@ -133,11 +111,11 @@ export const components = {
 
 - **Windows Vista 或更高版本：**
 
-    -   `%SYSTEMDRIVE%:\ProgramData\ONScripter-RU\UminekoPS3Fication**\`
+    - `%SYSTEMDRIVE%\ProgramData\ONScripter-RU\UminekoPS3Fication**\`
 
 - **Windows XP：**
 
-    - `%SYSTEMDRIVE%:\Documents and Settings\All Users\Application Data\ONScripter-RU\UminekoPS3Fication**\`
+    - `%SYSTEMDRIVE%\Documents and Settings\All Users\Application Data\ONScripter-RU\UminekoPS3Fication**\`
 
 - **Windows 平台下启用 iCloud Drive App 情况下：**
 
@@ -156,6 +134,8 @@ export const components = {
     - `~/.onscripter/UminekoPS3Fication**/`
 
 - **注意：**
+
+    - `**` 代表游戏语言，例如 `Cn`，`Cht`，`En` 等。
 
     - 不同版本的游戏（简体中文、繁体中文、英文、俄文版等）之间存档不共享。
 
@@ -205,12 +185,14 @@ export const components = {
 - **配置示例：**
 
     ```ini
-    # 在 `ons.cfg` 配置文件中设置
+    # 在 ons.cfg 配置文件中设置
     env[force_game]=chiru
     env[effect_volume]=33
     env[text_speed]=5
     env[bgm_title_language]=Japanese
+    ```
 
+    ```bash
     # 或通过命令行传递
     ./onscripter-ru --env[force_game] chiru --env[effect_volume] 33 --env[bgm_title_language] Japanese
     ```

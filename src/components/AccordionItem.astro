@@ -21,9 +21,12 @@ const generateId = () => {
 const id = providedId || generateId();
 ---
 
-<div class:list={["accordion-item bg-transparent transition-colors", { active }]} id={id}>
+<div
+  class:list={["accordion-item bg-transparent transition-colors", { active }]}
+  id={id}
+>
   <button
-    class="accordion-toggle inline-flex items-center gap-x-4 text-start py-3"
+    class="accordion-toggle inline-flex items-center gap-x-4 py-3 text-start"
     aria-controls={`${id}-collapse`}
     aria-expanded={active ? "true" : "false"}
   >

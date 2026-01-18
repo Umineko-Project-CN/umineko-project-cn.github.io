@@ -85,14 +85,20 @@ const tocItems = buildTocTree(headings.filter((h) => h.depth > 1));
                         <a href={`#${item.slug}`}>{item.text}</a>
                       </li>
                     ) : (
-                      // prettier-ignore
                       <li class="space-y-0.5">
+                        {/* prettier-ignore */}
                         <div class="collapse-toggle open" id={id} data-collapse={`#${collapseId}`}>{item.text}<Icon class:list={[
                               "tabler--chevron-down size-4 justify-self-end",
                               "collapse-open:rotate-180 transition-[rotate] duration-300",
                             ]} />
                         </div>
-                        <ul id={collapseId} class="open collapse space-y-0.5 transition-[height] overflow-hidden duration-300" aria-labelledby={id}>{renderToc(item.children)}</ul>
+                        <ul
+                          id={collapseId}
+                          class="open collapse space-y-0.5 overflow-hidden transition-[height] duration-300"
+                          aria-labelledby={id}
+                        >
+                          {renderToc(item.children)}
+                        </ul>
                       </li>
                     );
                   });
@@ -108,7 +114,12 @@ const tocItems = buildTocTree(headings.filter((h) => h.depth > 1));
       class:list={[
         "prose max-w-none min-w-0 flex-1",
         "prose-table:min-w-max prose-table:w-full",
+        "prose-ul:ml-[1.2em] prose-ol:ml-[1.2em]",
       ]}
+      style={{
+        "--tw-prose-links": "var(--color-accent)",
+        "--tw-prose-code": "var(--color-accent)",
+      }}
     >
       <slot />
     </article>
@@ -122,31 +133,27 @@ const tocItems = buildTocTree(headings.filter((h) => h.depth > 1));
     const hash = window.location.hash;
     if (!hash) return;
 
-    try {
-      const targetId = decodeURIComponent(hash.substring(1));
-      const target = document.getElementById(targetId);
-      if (!target) return;
+    const targetId = decodeURIComponent(hash.substring(1));
+    const target = document.getElementById(targetId);
+    if (!target) return;
 
-      const accordionItem = target.closest(".accordion-item");
-      if (accordionItem) {
-        const toggle =
-          accordionItem.querySelector<HTMLElement>(".accordion-toggle")!;
-        const content =
-          accordionItem.querySelector<HTMLElement>(".accordion-content")!;
+    const accordionItem = target.closest(".accordion-item");
+    if (accordionItem) {
+      const toggle =
+        accordionItem.querySelector<HTMLElement>(".accordion-toggle")!;
+      const content =
+        accordionItem.querySelector<HTMLElement>(".accordion-content")!;
 
-        if (
-          !accordionItem.classList.contains("active") ||
-          content.classList.contains("hidden")
-        ) {
-          toggle.click();
+      if (
+        !accordionItem.classList.contains("active") ||
+        content.classList.contains("hidden")
+      ) {
+        toggle.click();
 
-          setTimeout(() => {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 300);
-        }
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
       }
-    } catch (e) {
-      console.error("Hash navigation error:", e);
     }
   }
 

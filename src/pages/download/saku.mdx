@@ -8,10 +8,10 @@ import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
 import Card from "@components/Card.astro"
 export const components = {
-  h2: (props) => <Card {...props} tag="h2" />,
-  h3: (props) => <Card {...props} tag="h3" />,
-  h4: (props) => <Card {...props} tag="h4" />,
-  blockquote: (props) => <Card {...props} tag="div" />,
+    h2: (props) => <Card {...props} tag="h2" />,
+    h3: (props) => <Card {...props} tag="h3" />,
+    h4: (props) => <Card {...props} tag="h4" />,
+    blockquote: (props) => <Card {...props} tag="blockquote" />,
 };
 
 ## 概要
@@ -19,40 +19,43 @@ export const components = {
 > 游戏制作不易，使用本补丁前，请自觉购买本游戏。
 
 <div class="flex flex-col xl:flex-row-reverse items-center gap-8 my-8">
-  <div class="flex-1">
-    ![](@assets/common/saku.webp)
-  </div>
-  <div class="flex-1">
-	**支持平台：**
 
-	- 支持 NS 模拟器（Windows、macOS、Android 等）或已破解 NS 主机。
+<div class="flex-1">
+![](@assets/common/saku.webp)
+</div>
 
-	**收录剧本：**
+<div class="flex-1">
+**支持平台：**
 
-	- 《海猫鸣泣之时》（正篇 Episode1-4）
+- 支持 NS 模拟器（Windows、macOS、Android 等）或已破解 NS 主机。
 
-	- 《海猫鸣泣之时散》（正篇 Episode5-8）
-    
-	- 《海猫鸣泣之时翼》（番外）
+**收录剧本：**
 
-	- 《海猫鸣泣之时羽》（番外）
+- 《海猫鸣泣之时》（正篇 Episode1-4）
 
-	- 《海猫鸣泣之时咲》（番外）
+- 《海猫鸣泣之时散》（正篇 Episode5-8）
 
-	- 龙骑士07撰写的主机版独占游戏剧本（番外）
+- 《海猫鸣泣之时翼》（番外）
 
-	**其他特色：**
+- 《海猫鸣泣之时羽》（番外）
 
-	- **译文升级：**译文经过进一步的人工校对润色，更加准确与通顺。
+- 《海猫鸣泣之时咲》（番外）
 
-	- **错误修正：**修正了多处主机版错置的图片·语音·特效，力求呈现更加完美。
+- 龙骑士07撰写的主机版独占游戏剧本（番外）
 
-	- **双版本汉化：**汉化补丁分为双版本，可以按需选择：
+**其他特色：**
 
-		- “基础版”：保留主机版改动过的文本·语音·BGM。
+- **译文升级：**译文经过进一步的人工校对润色，更加准确与通顺。
 
-		- “还原版”：多处内容还原为原版文本·语音·BGM（推荐）。
-  </div>
+- **错误修正：**修正了多处主机版错置的图片·语音·特效，力求呈现更加完美。
+
+- **双版本汉化：**汉化补丁分为双版本，可以按需选择：
+
+    - “基础版”：保留主机版改动过的文本·语音·BGM。
+
+    - “还原版”：多处内容还原为原版文本·语音·BGM（推荐）。
+</div>
+
 </div>
 
 ## 教程
@@ -72,6 +75,7 @@ export const components = {
 ### 安装步骤
 
 <Accordion>
+
 <AccordionItem title="PC - Yuzu 模拟器（推荐）">
 1. **准备工作：**
 
@@ -163,11 +167,13 @@ export const components = {
 
     - 下载基础版/还原版的 **patch_atmos** 并解压，将其**复制到** SD 卡的“`atmosphere`”目录即可。
 </AccordionItem>
+
 </Accordion>
 
 ## 更新日志
 
 <Accordion>
+
 <AccordionItem title="查看更新日志">
 - **2025.07.26 基础版/还原版 汉化版本1.1**
 
@@ -179,6 +185,7 @@ export const components = {
 
     - 发布汉化
 </AccordionItem>
+
 </Accordion>
 
 ## 下载链接
@@ -186,17 +193,23 @@ export const components = {
 - 请在下载前阅读完所有上述内容。
 
 #### 补丁下载
-<div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
-    <DownloadButton class="btn-md btn-soft" link="https://pan.baidu.com/s/1dqI2tgrdo_XY4u7o993q9A">
-		百度网盘下载（提取码：1129）
-	</DownloadButton>
-    <DownloadButton class="btn-md btn-soft" link="https://pan.quark.cn/s/6c51a840af1b">
-		夸克网盘下载（提取码：aEeB）
-	</DownloadButton>
-    <DownloadButton class="btn-md btn-soft" link="https://cloud.189.cn/t/VBryU3nUJvyu">
-		天翼云盘下载（访问码：8fvf）
-	</DownloadButton>
-    <DownloadButton class="btn-md btn-soft"  link="https://mega.nz/folder/HThmEaDB#5X5T2RUM0pG-bEjPDXZSPw">
-		MEGA 网盘下载（需魔法访问）
-	</DownloadButton>
+
+<div class="not-prose grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+<DownloadButton class="btn-md btn-soft" link="https://pan.baidu.com/s/1dqI2tgrdo_XY4u7o993q9A">
+    百度网盘下载（提取码：1129）
+</DownloadButton>
+
+<DownloadButton class="btn-md btn-soft" link="https://pan.quark.cn/s/6c51a840af1b">
+    夸克网盘下载（提取码：aEeB）
+</DownloadButton>
+
+<DownloadButton class="btn-md btn-soft" link="https://cloud.189.cn/t/VBryU3nUJvyu">
+    天翼云盘下载（访问码：8fvf）
+</DownloadButton>
+
+<DownloadButton class="btn-md btn-soft"  link="https://mega.nz/folder/HThmEaDB#5X5T2RUM0pG-bEjPDXZSPw">
+    MEGA 网盘下载（需魔法访问）
+</DownloadButton>
+
 </div>

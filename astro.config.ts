@@ -27,7 +27,12 @@ export default defineConfig({
     remarkPlugins: [setDefaultLayout, remarkCjkFriendly],
     rehypePlugins: [rehypeTableWrapper],
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx({
+      shikiConfig: { theme: "dark-plus" },
+    }),
+    sitemap(),
+  ],
 });
 
 function setDefaultLayout() {

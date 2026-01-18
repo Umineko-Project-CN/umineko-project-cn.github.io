@@ -45,6 +45,11 @@ https://daisyui.com/theme-generator/#theme=eJyVlOFugyAUhV-FmCzZkkoABWFvQ_W6mlowo
   --noise: 0;
 }
 
+@theme {
+  --text-tiny: 0.625rem;
+  --color-gold: #d2ba93;
+}
+
 @custom-variant square (@media (min-aspect-ratio: 1/1));
 @custom-variant wide (@media (min-aspect-ratio: 16/9));
 
@@ -53,29 +58,6 @@ https://daisyui.com/theme-generator/#theme=eJyVlOFugyAUhV-FmCzZkkoABWFvQ_W6mlowo
   padding-inline: 2rem;
 }
 
-@theme {
-  --text-tiny: 0.625rem;
-  --color-gold: #d2ba93;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 @view-transition {
   navigation: auto;
-}
-
-.prose ul,
-.prose ol,
-.prose blockquote {
-  margin-left: 1.2em;
-}
-
-.prose a:not(.btn) {
-  color: var(--color-accent);
-}
-
-.prose code {
-  color: var(--color-accent);
 }

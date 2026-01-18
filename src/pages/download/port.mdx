@@ -8,41 +8,44 @@ import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
 import Card from "@components/Card.astro"
 export const components = {
-  h2: (props) => <Card {...props} tag="h2" />,
-  h3: (props) => <Card {...props} tag="h3" />,
-  h4: (props) => <Card {...props} tag="h4" />,
-  blockquote: (props) => <Card {...props} tag="div" />,
+    h2: (props) => <Card {...props} tag="h2" />,
+    h3: (props) => <Card {...props} tag="h3" />,
+    h4: (props) => <Card {...props} tag="h4" />,
+    blockquote: (props) => <Card {...props} tag="blockquote" />,
 };
 
 ## 概要
 
 > 游戏制作不易，游玩本版本前，请自觉购买正版游戏。
 
-<div class="flex flex-col xl:flex-row-reverse items-center gap-8 my-8">
-  <div class="flex-1">
-    ![](@assets/common/port.webp)
+<div class="flex flex-col xl:flex-row-reverse items-center gap-8">
 
-    ![](@assets/pages/download/port/download_read1.webp)
-  </div>
-  <div class="flex-1">
-    **支持平台：**
+<div class="flex-1">
+![](@assets/common/port.webp)
 
-    - 支持 Windows、macOS、Linux，也可在 Android、iOS 运行。
+![](@assets/pages/download/port/download_read1.webp)
+</div>
 
-    **收录剧本：**
+<div class="flex-1">
+**支持平台：**
 
-    - 《海猫鸣泣之时》（正篇 Episode1-4）
+- 支持 Windows、macOS、Linux，也可在 Android、iOS 运行。
 
-    - 《海猫鸣泣之时散》（正篇 Episode5-8）
+**收录剧本：**
 
-    **其他特色：**
+- 《海猫鸣泣之时》（正篇 Episode1-4）
 
-    - **完整还原：**完整还原 PS3 版游戏的 CG、语音、特效、动态立绘。
+- 《海猫鸣泣之时散》（正篇 Episode5-8）
 
-    - **译文升级：**译文经过进一步的人工校对润色，更加准确与通顺。
+**其他特色：**
 
-    - **优化修正：**优化 PS3 版旧有游戏系统，并修正多处 PS3 版错置/删减的文本·图片·语音·特效。
-  </div>
+- **完整还原：**完整还原 PS3 版游戏的 CG、语音、特效、动态立绘。
+
+- **译文升级：**译文经过进一步的人工校对润色，更加准确与通顺。
+
+- **优化修正：**优化 PS3 版旧有游戏系统，并修正多处 PS3 版错置/删减的文本·图片·语音·特效。
+</div>
+
 </div>
 
 ## 教程
@@ -70,6 +73,7 @@ export const components = {
 ### 安装步骤
 
 <Accordion>
+
 <AccordionItem title="Windows 平台">
 1. **下载：**
 
@@ -175,7 +179,7 @@ export const components = {
     
     - 运行游戏主程序即可启动游戏。
 
-        - 若无法确定路径导致游戏启动失败，请在移动设备 SD 卡的 `ONScripter-RU` 文件夹中创建 `default.cfg` 文件，并添加一行 `root=/完整/游戏/路径`。
+        - 若无法确定路径导致游戏启动失败，请在移动设备 SD 卡的 `ONScripter-RU` 文件夹中创建 `default.cfg` 文件，并添加一行 `root=/完整/游戏/路径`。
 </AccordionItem>
 
 <AccordionItem title="iOS 平台">
@@ -216,6 +220,7 @@ export const components = {
 
     - 运行游戏主程序即可启动游戏。
 </AccordionItem>
+
 </Accordion>
 
 ### 解压密码
@@ -262,33 +267,42 @@ export const components = {
 
 #### 游戏下载
 
-<div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
-    <DownloadButton class="btn-md btn-soft" link="https://pan.baidu.com/s/1Gu_-wr70gkidnYBMXKt_Bg">
-        百度网盘下载（提取码：1129）
-    </DownloadButton>
-    <DownloadButton class="btn-md btn-soft" link="https://mega.nz/folder/DG4g3bSQ#i0SE2HBANoQsak361-PX0A">
-        MEGA 网盘下载（需魔法访问）
-    </DownloadButton>
+<div class="not-prose grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+<DownloadButton class="btn-md btn-soft" link="https://pan.baidu.com/s/1Gu_-wr70gkidnYBMXKt_Bg">
+    百度网盘下载（提取码：1129）
+</DownloadButton>
+
+<DownloadButton class="btn-md btn-soft" link="https://mega.nz/folder/DG4g3bSQ#i0SE2HBANoQsak361-PX0A">
+    MEGA 网盘下载（需魔法访问）
+</DownloadButton>
+
 </div>
 
 #### 额外语言包下载
 
-<div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
-    <DownloadButton class="btn-md btn-soft" link="https://pan.baidu.com/s/1UNQQDbtRJC3eaUlDOoVS6A">
-        繁体中文包 百度网盘下载（提取码：0715）
-    </DownloadButton>
-    <DownloadButton class="btn-md btn-soft" link="https://mega.nz/folder/rGoDWRyD#R1BxfiBLUaM7ljsGFvA-TA">
-        繁体中文包 MEGA 网盘下载（需魔法访问）
-    </DownloadButton>
+<div class="not-prose grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+<DownloadButton class="btn-md btn-soft" link="https://pan.baidu.com/s/1UNQQDbtRJC3eaUlDOoVS6A">
+    繁体中文包 百度网盘下载（提取码：0715）
+</DownloadButton>
+
+<DownloadButton class="btn-md btn-soft" link="https://mega.nz/folder/rGoDWRyD#R1BxfiBLUaM7ljsGFvA-TA">
+    繁体中文包 MEGA 网盘下载（需魔法访问）
+</DownloadButton>
+
 </div>
 
 #### 更新下载
 
 <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
-    <DownloadButton class="btn-md btn-soft" link="https://down.snsteam.club/script.zip">
-        脚本
-    </DownloadButton>
-    <DownloadButton class="btn-md btn-soft" link="https://down.snsteam.club/resource.zip">
-        资源包
-    </DownloadButton>
+
+<DownloadButton class="btn-md btn-soft" link="https://down.snsteam.club/script.zip">
+    脚本
+</DownloadButton>
+
+<DownloadButton class="btn-md btn-soft" link="https://down.snsteam.club/resource.zip">
+    资源包
+</DownloadButton>
+
 </div>

@@ -1,45 +1,54 @@
 ---
+import Icon from "@components/Icon.astro";
+import clsx from "clsx";
+
 interface Props {
-  class?: string;
-  tag?: 'h2' | 'h3' | 'h4' | 'div';
+  tag: "h2" | "h3" | "h4" | "blockquote";
   id?: string;
+  class?: string;
 }
 
-import IconComponent from "@components/Icon.astro";
-const Icon = IconComponent as any;
-const { class: className, tag: Element = 'div', id } = Astro.props;
+const { class: className, tag: Element, id } = Astro.props;
 
 const themeConfig = {
   h2: {
-    container: "bg-primary text-base-content",
-    icon: "tabler--message-filled",
-    text: "text-2xl py-4",
+    container: clsx`bg-primary text-base-content`,
+    icon: clsx`tabler--message-filled`,
+    text: clsx`py-4 text-2xl`,
   },
   h3: {
-    container: "bg-base-300 text-base-content",
-    icon: "tabler--point-filled",
-    text: "text-lg py-3",
+    container: clsx`bg-base-300 text-base-content`,
+    icon: clsx`tabler--point-filled`,
+    text: clsx`py-3 text-lg`,
   },
   h4: {
-    container: "bg-base-200 text-base-content",
-    icon: "tabler--point-filled",
-    text: "text-lg py-1",
+    container: clsx`bg-base-200 text-base-content`,
+    icon: clsx`tabler--point-filled`,
+    text: clsx`py-1 text-lg`,
   },
-  div: {
-    container: "bg-transparent border border-accent",
-    icon: "tabler--info-circle",
-    text: "text-accent text-base py-2 [&_p]:my-0",
-  }
+  blockquote: {
+    container: clsx`border-accent border bg-transparent`,
+    icon: clsx`tabler--info-circle`,
+    text: clsx`text-accent py-2 [&_p]:my-0`,
+  },
 };
 
-const config = themeConfig[Element] || themeConfig.div;
+const config = themeConfig[Element] || themeConfig.blockquote;
 ---
 
-<Element class:list={["card min-h-0 overflow-hidden", config.container, className]}>
-  <div class:list={["card-body flex flex-row items-center flex-nowrap", config.text]}>
-    {config.icon && <Icon name={config.icon} class:list={[config.icon, "shrink-0"]} />}
+<Element
+  id={id}
+  class:list={["card min-h-0 overflow-hidden", config.container, className]}
+>
+  <div
+    class:list={[
+      "card-body flex flex-row flex-nowrap items-center",
+      config.text,
+    ]}
+  >
+    {config.icon && <Icon class:list={[config.icon, "shrink-0"]} />}
     <div class="flex-1">
-      {id ? <span id={id}><slot /></span> : <slot />}
+      <slot />
     </div>
   </div>
 </Element>
