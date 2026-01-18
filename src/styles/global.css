@@ -71,3 +71,11 @@ html {
 .prose blockquote {
   margin-left: 1.2em;
 }
+
+.prose a:not(.btn) {
+  color: var(--color-accent);
+}
+
+.prose code {
+  color: var(--color-accent);
+}
