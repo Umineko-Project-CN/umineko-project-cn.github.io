@@ -10,44 +10,64 @@ interface Props {
 
 const { class: className, tag: Element, id } = Astro.props;
 
+
+const baseLayout = "flex flex-row items-center";
+
 const themeConfig = {
   h2: {
-    container: clsx`bg-primary text-base-content`,
-    icon: clsx`tabler--message-filled`,
-    text: clsx`py-4 text-2xl`,
+    container: clsx`bg-primary text-primary-content rounded-xl shadow-md mt-12 first:mt-0 mb-2`,
+    icon: clsx`tabler--message-filled opacity-90 text-2xl`,
+    wrapper: clsx`px-7 py-4`, 
+    text: clsx`text-2xl font-bold tracking-wide`,
   },
   h3: {
-    container: clsx`bg-base-300 text-base-content`,
-    icon: clsx`tabler--point-filled`,
-    text: clsx`py-3 text-lg`,
+    container: clsx`bg-base-200/60 rounded-xl mt-3 first:mt-0 mb-2`, 
+    icon: clsx``, 
+    wrapper: clsx`px-8 py-3`,
+    text: clsx`text-xl font-bold text-base-content`,
   },
   h4: {
-    container: clsx`bg-base-200 text-base-content`,
-    icon: clsx`tabler--point-filled`,
-    text: clsx`py-1 text-lg`,
+    container: clsx`mt-3 first:mt-0 mb-2 bg-transparent`, 
+    icon: clsx``, 
+    wrapper: clsx`px-2.5 py-1 gap-4`, 
+    text: clsx`text-lg font-bold text-base-content`,
+    marker: clsx`w-1.5 h-6 rounded-full bg-primary shadow-sm shrink-0`, 
+    rightLine: clsx`h-1.5 flex-1 rounded-full bg-gradient-to-r from-base-200 to-transparent`,
   },
   blockquote: {
-    container: clsx`border-accent border bg-transparent`,
-    icon: clsx`tabler--info-circle`,
-    text: clsx`text-accent py-2 [&_p]:my-0`,
+    container: clsx`border-accent border bg-transparent rounded-xl mt-3 first:mt-0 mb-2`,
+    icon: clsx`tabler--info-circle text-accent`,
+    wrapper: clsx`flex flex-row items-center py-2 px-3`,
+    text: clsx`text-accent font-medium [&_p]:my-0`,
   },
 };
 
 const config = themeConfig[Element] || themeConfig.blockquote;
+const isH4 = Element === "h4";
 ---
 
 <Element
   id={id}
-  class:list={["card min-h-0 overflow-hidden", config.container, className]}
+  class:list={[
+    "w-full min-h-0 overflow-hidden",
+    config.container,
+    className
+  ]}
 >
   <div
     class:list={[
-      "card-body flex flex-row flex-nowrap items-center",
-      config.text,
+      baseLayout,
+      config.wrapper 
     ]}
   >
-    {config.icon && <Icon class:list={[config.icon, "shrink-0"]} />}
-    <div class="flex-1">
+    {isH4 && <div class={themeConfig.h4.marker} aria-hidden="true"></div>}
+
+    {!isH4 && config.icon && (
+      <div class="mr-3 flex shrink-0 items-center justify-center">
+        <Icon class:list={[config.icon]} />
+      </div>
+    )}
+    <div class:list={[isH4 ? "shrink-0" : "flex-1", config.text]}>
       <slot />
     </div>
   </div>

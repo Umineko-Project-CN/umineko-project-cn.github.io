@@ -61,3 +61,7 @@ https://daisyui.com/theme-generator/#theme=eJyVlOFugyAUhV-FmCzZkkoABWFvQ_W6mlowo
 @view-transition {
   navigation: auto;
 }
+
+hr {
+  @apply my-4 border-t border-white/20;
+}
