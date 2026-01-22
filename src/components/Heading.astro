@@ -1,0 +1,76 @@
+---
+import Icon from "@components/Icon.astro";
+import clsx from "clsx";
+
+interface Props {
+  tag: "h2" | "h3" | "h4" | "blockquote";
+  id?: string;
+  class?: string;
+}
+
+const { class: className, tag: Element, id } = Astro.props;
+
+const baseLayout = "flex flex-row items-center";
+
+const themeConfig = {
+  h2: {
+            container: clsx`bg-gradient-to-r from-primary to-primary/60 text-primary-content rounded-xl shadow-md mt-12 first:mt-0 mb-2 relative overflow-hidden`,
+        icon: clsx``, 
+    wrapper: clsx`pl-8 pr-6 py-4 relative z-10`, 
+        text: clsx`text-2xl font-bold tracking-wide`,
+  },
+  h3: {
+            container: clsx`bg-gradient-to-r from-base-200 to-base-200/60 rounded-xl mt-3 first:mt-0 mb-2 relative overflow-hidden`, 
+        icon: clsx``, 
+    wrapper: clsx`pl-8 pr-6 py-2 relative z-10`,
+        text: clsx`text-lg font-bold text-base-content`,
+  },
+  h4: {
+            container: clsx`mt-3 first:mt-0 mb-2 bg-transparent`, 
+    icon: clsx`tabler--label-important-filled text-accent`, 
+    wrapper: clsx`pl-0.5 py-1 gap-1.5`, 
+        text: clsx`text-lg font-bold text-accent`,
+  },
+  blockquote: {
+        container: clsx`border-accent border bg-transparent rounded-xl mt-3 first:mt-0 mb-2`,
+    icon: clsx`tabler--info-circle text-accent`,
+    wrapper: clsx`flex flex-row items-center py-2 px-4`,
+    text: clsx`text-accent font-medium [&_p]:my-0`,
+  },
+};
+
+const config = themeConfig[Element] || themeConfig.blockquote;
+const isH4 = Element === "h4";
+---
+
+<Element
+  id={id}
+  class:list={[
+    "w-full min-h-0", 
+    config.container,
+    className
+  ]}
+>
+  <div
+    class:list={[
+      baseLayout,
+      config.wrapper 
+    ]}
+  >
+    {config.icon && (
+      <div class:list={[
+        "flex shrink-0 items-center justify-center",
+                        isH4 ? "w-6" : "mr-3" 
+      ]}>
+        <Icon class:list={[
+          config.icon,
+          isH4 ? "text-xl" : "" 
+        ]} />
+      </div>
+    )}
+
+    <div class:list={["flex-1", config.text]}>
+      <slot />
+    </div>
+  </div>
+</Element>

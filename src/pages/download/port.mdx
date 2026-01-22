@@ -6,12 +6,12 @@ import Icon from '@components/Icon.astro';
 import DownloadButton from "@components/DownloadButton.astro"
 import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
-import Card from "@components/Card.astro"
+import Heading from "@components/Heading.astro"
 export const components = {
-    h2: (props) => <Card {...props} tag="h2" />,
-    h3: (props) => <Card {...props} tag="h3" />,
-    h4: (props) => <Card {...props} tag="h4" />,
-    blockquote: (props) => <Card {...props} tag="blockquote" />,
+    h2: (props) => <Heading {...props} tag="h2" />,
+    h3: (props) => <Heading {...props} tag="h3" />,
+    h4: (props) => <Heading {...props} tag="h4" />,
+    blockquote: (props) => <Heading {...props} tag="blockquote" />,
 };
 
 ## 概要
@@ -262,47 +262,43 @@ export const components = {
 
 - 请在下载前阅读完所有上述内容。
 
-#### 游戏下载
+### 游戏下载
 
 <div class="not-prose grid grid-cols-1 lg:grid-cols-2 gap-4">
 
-<DownloadButton class="btn-md btn-soft" link="https://pan.baidu.com/s/1Gu_-wr70gkidnYBMXKt_Bg">
+<DownloadButton class="btn-lg btn-soft" link="https://pan.baidu.com/s/1Gu_-wr70gkidnYBMXKt_Bg">
     百度网盘下载（提取码：1129）
 </DownloadButton>
 
-<DownloadButton class="btn-md btn-soft" link="https://mega.nz/folder/DG4g3bSQ#i0SE2HBANoQsak361-PX0A">
+<DownloadButton class="btn-lg btn-soft" link="https://mega.nz/folder/DG4g3bSQ#i0SE2HBANoQsak361-PX0A">
     MEGA 网盘下载（需魔法访问）
 </DownloadButton>
 
 </div>
 
-****
-
-#### 额外语言包下载
+### 额外语言包下载
 
 <div class="not-prose grid grid-cols-1 lg:grid-cols-2 gap-4">
 
-<DownloadButton class="btn-md btn-soft" link="https://pan.baidu.com/s/1UNQQDbtRJC3eaUlDOoVS6A">
+<DownloadButton class="btn-lg btn-soft" link="https://pan.baidu.com/s/1UNQQDbtRJC3eaUlDOoVS6A">
     繁体中文包 百度网盘下载（提取码：0715）
 </DownloadButton>
 
-<DownloadButton class="btn-md btn-soft" link="https://mega.nz/folder/rGoDWRyD#R1BxfiBLUaM7ljsGFvA-TA">
+<DownloadButton class="btn-lg btn-soft" link="https://mega.nz/folder/rGoDWRyD#R1BxfiBLUaM7ljsGFvA-TA">
     繁体中文包 MEGA 网盘下载（需魔法访问）
 </DownloadButton>
 
 </div>
 
-****
-
-#### 更新下载
+### 更新下载
 
 <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
 
-<DownloadButton class="btn-md btn-soft" link="https://down.snsteam.club/script.zip">
+<DownloadButton class="btn-lg btn-soft" link="https://down.snsteam.club/script.zip">
     脚本
 </DownloadButton>
 
-<DownloadButton class="btn-md btn-soft" link="https://down.snsteam.club/resource.zip">
+<DownloadButton class="btn-lg btn-soft" link="https://down.snsteam.club/resource.zip">
     资源包
 </DownloadButton>
 

@@ -6,15 +6,15 @@ import Icon from '@components/Icon.astro';
 import Kbd from "@components/Kbd.astro"
 import Accordion from "@components/Accordion.astro"
 import AccordionItem from "@components/AccordionItem.astro"
-import Card from "@components/Card.astro"
+import Heading from "@components/Heading.astro"
 export const components = {
-    h2: (props) => <Card {...props} tag="h2" />,
-    h3: (props) => <Card {...props} tag="h3" />,
-    h4: (props) => <Card {...props} tag="h4" />,
-    blockquote: (props) => <Card {...props} tag="blockquote" />,
+    h2: (props) => <Heading {...props} tag="h2" />,
+    h3: (props) => <Heading {...props} tag="h3" />,
+    h4: (props) => <Heading {...props} tag="h4" />,
+    blockquote: (props) => <Heading {...props} tag="blockquote" />,
 };
 
-## 《海猫》版本对比
+## 版本对比
 - PS3 版移植版与 NS 版汉化补丁对比如下：
 
     |  | 《海猫鸣泣之时 ～轮舞曲与夜想曲 移植版～》 | 《海猫鸣泣之时咲 ～猫箱与梦想的交响曲～》汉化补丁 |
@@ -253,11 +253,11 @@ export const components = {
 - **兼容性问题：**如果所有方法都无效，则可能是引擎与你的设备存在兼容性问题，暂时无法解决。
 
 ****
-#### 游戏内字体过大
+#### 游戏内字号过大
 
-- 可以在 `ons.cfg` 配置文件中加入 `font-multiplier` 代码来缩放字体。将代码中所有的 `0.9` 替换为你希望的缩放比例。
+- 可以在 `ons.cfg` 配置文件中加入 `font-multiplier` 代码来缩放字号。将代码中所有的 `0.9` 替换为你希望的缩放比例。
 
-    - **注意：**此功能可能导致字体在极少数情况下出现显示不稳定的问题。请谨慎使用。
+    - **注意：**此功能可能导致文字在极少数情况下出现显示不稳定的问题。请谨慎使用。
 
 - **代码示例（缩放为 0.9 倍）：**
 

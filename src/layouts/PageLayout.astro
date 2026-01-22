@@ -20,6 +20,7 @@ const {
 type TocItem = {
   text: string;
   slug: string;
+  depth: number; 
   children: TocItem[];
 };
 
@@ -30,6 +31,7 @@ const buildTocTree = (headings: MarkdownHeading[]): TocItem[] => {
     const item: TocItem = {
       text: heading.text,
       slug: heading.slug,
+      depth: heading.depth,
       children: [],
     };
     while (stack.length > 0 && stack[stack.length - 1].depth >= heading.depth) {
@@ -57,55 +59,95 @@ const tocItems = buildTocTree(headings.filter((h) => h.depth > 1));
     style={`--bg-image: url('${skyImage.src}')`}
   >
   </div>
-  <div id="main" class="container flex flex-col gap-8 py-16 md:flex-row">
+  <div id="main" class="container flex flex-col gap-8 py-8 md:flex-row">
     {
       toc === "on" && headings.length > 0 && (
         <aside class="flex-shrink-0 md:w-64 lg:w-72">
           <div
             class:list={[
-              "sticky top-20 max-h-[calc(100dvh-6rem)] overflow-y-auto p-4",
+              "sticky top-20 max-h-[calc(100dvh-6rem)] overflow-y-auto",
               "bg-base-200 rounded-box border-base-300 border",
+              "shadow-sm transition-all duration-300", 
             ]}
           >
-            <ul class="menu menu-sm">
-              <li class="font-bold">
-                <a href="#main">
-                  <Icon class="tabler--book size-4" />
-                  {title}
-                </a>
-              </li>
-              {(function () {
-                const renderToc = (items: TocItem[]) =>
-                  items.map((item) => {
-                    const id = `toc-${item.slug}`;
-                    const collapseId = `toc-collapse-${item.slug}`;
+            <button
+              id="toc-mobile-toggle"
+              type="button"
+              class:list={[
+                "flex w-full items-center justify-between px-6 py-5 text-left md:cursor-default",
+                "hover:bg-base-300/50 md:hover:bg-transparent transition-colors", 
+              ]}
+              aria-expanded="false"
+              aria-controls="toc-content-wrapper"
+            >
+              <div class="flex items-center gap-2 font-bold text-base-content">
+                <Icon class="tabler--list size-6 shrink-0 text-primary" />
+                <span class="line-clamp-1 leading-tight">{title}</span>
+              </div>
+              
+              <Icon
+                id="toc-mobile-chevron"
+                class="tabler--chevron-down size-5 shrink-0 text-base-content/50 transition-transform duration-300 md:hidden"
+              />
+            </button>
 
-                    return item.children.length === 0 ? (
-                      <li>
-                        <a href={`#${item.slug}`}>{item.text}</a>
-                      </li>
-                    ) : (
-                      <li class="space-y-0.5">
-                        {/* prettier-ignore */}
-                        <div class="collapse-toggle open" id={id} data-collapse={`#${collapseId}`}>{item.text}<Icon class:list={[
-                              "tabler--chevron-down size-4 justify-self-end",
-                              "collapse-open:rotate-180 transition-[rotate] duration-300",
-                            ]} />
-                        </div>
-                        <ul
-                          id={collapseId}
-                          class="open collapse space-y-0.5 overflow-hidden transition-[height] duration-300"
-                          aria-labelledby={id}
-                        >
-                          {renderToc(item.children)}
-                        </ul>
-                      </li>
-                    );
-                  });
-
-                return renderToc(tocItems);
-              })()}
-            </ul>
+            <div
+              id="toc-content-wrapper"
+              class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out md:grid-rows-[1fr]"
+            >
+              <div class="overflow-hidden">
+                <div class="mx-4 mb-2 border-b border-base-content/10"></div>
+                <ul class="menu menu-sm px-3.5 pb-5 pt-0">
+                  {(function () {
+                    const renderToc = (items: TocItem[]) =>
+                      items.map((item) => {
+                        const id = `toc-${item.slug}`;
+                        const collapseId = `toc-collapse-${item.slug}`;
+                        const isOpen = item.depth < 3;
+                        return item.children.length === 0 ? (
+                          <li>
+                            <a 
+                              href={`#${item.slug}`} 
+                              class="leading-tight py-2 text-base-content/80 hover:text-primary"
+                            >
+                              {item.text}
+                            </a>
+                          </li>
+                        ) : (
+                          <li class="space-y-0">
+                            <div 
+                              class:list={[
+                                "collapse-toggle leading-tight py-2 text-base-content/80 hover:text-primary",
+                                isOpen ? "open" : ""
+                              ]} 
+                              id={id} 
+                              data-collapse={`#${collapseId}`}
+                            >
+                              {item.text}
+                              <Icon class:list={[
+                                "tabler--chevron-down size-3.5 justify-self-end opacity-60",
+                                "collapse-open:rotate-180 transition-[rotate] duration-300",
+                              ]} />
+                            </div>
+                            <ul
+                              id={collapseId}
+                              class:list={[
+                                "collapse space-y-0 overflow-hidden transition-[height] duration-300",
+                                isOpen ? "open" : ""
+                              ]}
+                              aria-labelledby={id}
+                              style={isOpen ? {} : { height: '0px' }}
+                            >
+                              {renderToc(item.children)}
+                            </ul>
+                          </li>
+                        );
+                      });
+                    return renderToc(tocItems);
+                  })()}
+                </ul>
+              </div>
+            </div>
           </div>
         </aside>
       )
@@ -156,7 +198,30 @@ const tocItems = buildTocTree(headings.filter((h) => h.depth > 1));
       }
     }
   }
-
-  window.addEventListener("load", expandAccordionForHash);
+  function setupMobileTocToggle() {
+    const toggleBtn = document.getElementById("toc-mobile-toggle");
+    const wrapper = document.getElementById("toc-content-wrapper");
+    const chevron = document.getElementById("toc-mobile-chevron");
+    if (!toggleBtn || !wrapper || !chevron) return;
+    let isExpanded = false;
+    toggleBtn.addEventListener("click", () => {
+      isExpanded = !isExpanded;
+      if (isExpanded) {
+        wrapper.classList.remove("grid-rows-[0fr]");
+        wrapper.classList.add("grid-rows-[1fr]");
+        chevron.style.transform = "rotate(180deg)";
+        toggleBtn.setAttribute("aria-expanded", "true");
+      } else {
+        wrapper.classList.remove("grid-rows-[1fr]");
+        wrapper.classList.add("grid-rows-[0fr]");
+        chevron.style.transform = "rotate(0deg)";
+        toggleBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+  window.addEventListener("load", () => {
+    expandAccordionForHash();
+    setupMobileTocToggle();
+  });
   window.addEventListener("hashchange", expandAccordionForHash);
 </script>
