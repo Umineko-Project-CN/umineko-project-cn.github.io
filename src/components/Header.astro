@@ -21,6 +21,30 @@ if (navbarStyle === "transparent") {
 } else {
   headerClass = clsx`bg-base-200 sticky`;
 }
+
+const navItemClass = clsx`
+  inline-flex h-9 items-center justify-between gap-1 rounded-full px-4
+  text-sm font-bold tracking-wide text-base-content/80
+  transition-all duration-300
+  hover:bg-primary/5 hover:text-primary
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20
+  cursor-pointer select-none
+  w-full md:w-auto md:min-w-[86px] 
+`; 
+
+const dropdownMenuClass = clsx`
+  dropdown-menu dropdown-open:opacity-100 hidden
+  min-w-[140px] rounded-xl 
+  bg-base-100/95 backdrop-blur-md shadow-lg 
+  p-1.5 mt-2
+`;
+
+const dropdownItemClass = clsx`
+  dropdown-item rounded-lg px-3 py-2
+  text-sm font-medium text-base-content/80
+  hover:bg-primary/5 hover:text-primary
+  transition-colors
+`;
 ---
 
 <header
@@ -28,7 +52,7 @@ if (navbarStyle === "transparent") {
   class:list={[
     "navbar group top-0 z-50 w-full p-0",
     "md:shadow-base-300/20 on-top shadow-sm [.on-top]:shadow-none",
-    "transition-[background-color,box-shadow] duration-500",
+    "transition-[background-color,box-shadow,height] duration-500",
     headerClass,
   ]}
 >
@@ -43,36 +67,40 @@ if (navbarStyle === "transparent") {
         href="/"
         class:list={[
           "btn btn-text btn-xl p-2 md:group-[.on-top]:h-18",
-          "transition-[height,background-color] duration-300",
+          "transition-[height] duration-300", 
         ]}
         aria-label="Homepage Link"
       >
         <Image
           src={logoImg}
-          class="h-full w-auto"
+          class="h-full w-auto object-contain"
           loading="eager"
           alt="日不落汉化组"
         />
       </a>
-      <div class="md:hidden">
+      
+      <div class="md:hidden flex items-center gap-2">
         <a
-          class="btn btn-text btn-neutral btn-lg btn-circle"
+          class="btn btn-text btn-neutral btn-circle btn-sm"
           href="https://github.com/Umineko-Project-CN"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Icon class="tabler--brand-github size-7" />
+          <Icon class="tabler--brand-github size-6" />
         </a>
         <button
           type="button"
-          class="collapse-toggle btn btn-text btn-neutral btn-lg btn-circle"
+          class="collapse-toggle btn btn-text btn-neutral btn-circle btn-sm"
           data-collapse="#navbar-collapse"
           aria-controls="navbar-collapse"
           aria-label="Toggle navigation"
         >
-          <Icon class="tabler--menu-2 collapse-open:hidden size-8" />
-          <Icon class="tabler--x collapse-open:block hidden size-8" />
+          <Icon class="tabler--menu-2 collapse-open:hidden size-6" />
+          <Icon class="tabler--x collapse-open:block hidden size-6" />
         </button>
       </div>
     </div>
+
     <nav
       id="navbar-collapse"
       class:list={[
@@ -81,75 +109,100 @@ if (navbarStyle === "transparent") {
         "shadow-base-300/20 group-[.on-top]:max-md:shadow-sm",
       ]}
     >
-      <ul class="menu md:menu-horizontal gap-2 text-base">
-        <li><a href="/">首页</a></li>
+      <ul class="menu md:menu-horizontal w-full md:w-auto gap-1 md:gap-2 text-base p-2 md:p-0">
+        <li>
+          <a href="/" class={navItemClass}>
+            <span>首页</span>
+            <span class="w-3.5 h-3.5 inline-block" aria-hidden="true"></span>
+          </a>
+        </li>
+
         <li
-          class="dropdown relative inline-flex [--auto-close:inside] [--offset:9] [--placement:bottom-end]"
+          class="dropdown relative inline-flex [--auto-close:inside] [--offset:10] [--placement:bottom-end]"
         >
           <button
             id="dropdown-nav-introduction"
             type="button"
-            class="dropdown-toggle dropdown-open:bg-base-content/10 dropdown-open:text-base-content"
+            class:list={[
+              "dropdown-toggle",
+              navItemClass,
+              "dropdown-open:bg-primary/5 dropdown-open:text-primary"
+            ]}
             aria-haspopup="menu"
             aria-expanded="false"
             aria-label="Dropdown"
           >
-            介绍
+            <span>介绍</span>
             <Icon
-              class="tabler--chevron-down dropdown-open:rotate-180 size-4"
+              class="tabler--chevron-down dropdown-open:rotate-180 size-3.5 opacity-60 transition-transform duration-300"
             />
           </button>
           <ul
-            class="dropdown-menu dropdown-open:opacity-100 hidden"
+            class={dropdownMenuClass}
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="dropdown-nav-introduction"
           >
             <li>
-              <a class="dropdown-item" href="/port">PS3 版移植版</a>
+              <a class={dropdownItemClass} href="/port">PS3 版移植版</a>
             </li>
             <li>
-              <a class="dropdown-item" href="/saku">NS 版汉化补丁</a>
+              <a class={dropdownItemClass} href="/saku">NS 版汉化补丁</a>
             </li>
           </ul>
         </li>
+
         <li
-          class="dropdown relative inline-flex [--auto-close:inside] [--offset:9] [--placement:bottom-end]"
+          class="dropdown relative inline-flex [--auto-close:inside] [--offset:10] [--placement:bottom-end]"
         >
           <button
             id="dropdown-nav-download"
             type="button"
-            class="dropdown-toggle dropdown-open:bg-base-content/10 dropdown-open:text-base-content"
+            class:list={[
+              "dropdown-toggle",
+              navItemClass,
+              "dropdown-open:bg-primary/5 dropdown-open:text-primary"
+            ]}
             aria-haspopup="menu"
             aria-expanded="false"
             aria-label="Dropdown"
           >
-            下载
+            <span>下载</span>
             <Icon
-              class="tabler--chevron-down dropdown-open:rotate-180 size-4"
+              class="tabler--chevron-down dropdown-open:rotate-180 size-3.5 opacity-60 transition-transform duration-300"
             />
           </button>
           <ul
-            class="dropdown-menu dropdown-open:opacity-100 hidden"
+            class={dropdownMenuClass}
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="dropdown-nav-download"
           >
             <li>
-              <a class="dropdown-item" href="/download/port">PS3 版移植版</a>
+              <a class={dropdownItemClass} href="/download/port">PS3 版移植版</a>
             </li>
             <li>
-              <a class="dropdown-item" href="/download/saku">NS 版汉化补丁</a>
+              <a class={dropdownItemClass} href="/download/saku">NS 版汉化补丁</a>
             </li>
           </ul>
         </li>
-        <li><a href="/help">帮助</a></li>
+
+        <li>
+          <a href="/help" class={navItemClass}>
+            <span>帮助</span>
+            <span class="w-3.5 h-3.5 inline-block" aria-hidden="true"></span>
+          </a>
+        </li>
       </ul>
     </nav>
+
     <div class="navbar-end w-auto items-center gap-4 max-md:hidden">
       <a
         class="btn btn-text btn-neutral btn-lg btn-circle"
         href="https://github.com/Umineko-Project-CN"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Github"
       >
         <Icon class="tabler--brand-github size-5.5" />
       </a>
@@ -164,13 +217,23 @@ if (navbarStyle === "transparent") {
   const navbar = document.getElementById("navbar")!;
 
   function updateNavbar() {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 20) {
       navbar.classList.remove("on-top");
     } else {
       navbar.classList.add("on-top");
     }
   }
 
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateNavbar();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
   updateNavbar();
-  window.addEventListener("scroll", updateNavbar);
 </script>
