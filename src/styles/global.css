@@ -55,9 +55,58 @@ https://daisyui.com/theme-generator/#theme=eJyVlOFugyAUhV-FmCzZkkoABWFvQ_W6mlowo
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: 1rem;
+}
+
+@utility prose {
+  h2 {
+    @apply px-6 py-4 tracking-wider;
+    @apply text-primary-content rounded-xl shadow-md;
+    @apply from-primary to-primary/60 bg-linear-to-r;
+  }
+
+  h3 {
+    @apply px-6 py-2 text-lg;
+    @apply text-base-content rounded-xl shadow-md;
+    @apply from-base-200 to-base-200/60 bg-linear-to-r;
+  }
+
+  h4 {
+    @apply text-accent flex items-center px-1 py-2 text-lg;
+    @apply before:iconify before:tabler--label-important-filled before:size-4;
+    @apply before:mr-1 before:text-xl;
+  }
+
+  blockquote {
+    @apply relative border-none;
+    @apply not-italic;
+  }
+
+  blockquote::before {
+    content: "";
+    @apply absolute inset-y-0.5 left-0 w-1;
+    @apply bg-primary rounded-md;
+  }
+
+  blockquote p {
+    @apply before:content-none after:content-none;
+  }
 }
 
 @view-transition {
   navigation: auto;
+}
+
+article > *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    margin: 1.5em;
+}
+
+@layer base {
+  table {
+    @apply my-0; 
+    border-collapse: collapse; 
+  }
+  th, td {
+    @apply py-0;
+  }
 }

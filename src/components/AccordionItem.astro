@@ -26,7 +26,7 @@ const id = providedId || generateId();
   id={id}
 >
   <button
-    class="accordion-toggle inline-flex items-center gap-x-4 py-3 text-start"
+    class="accordion-toggle inline-flex items-center gap-x-2 py-3 pl-1 text-start"
     aria-controls={`${id}-collapse`}
     aria-expanded={active ? "true" : "false"}
   >
@@ -47,7 +47,7 @@ const id = providedId || generateId();
     aria-labelledby={id}
     role="region"
   >
-    <div class="px-5 pb-4">
+    <div class="pl-0 pr-0 pb-4">
       <slot />
     </div>
   </div>
